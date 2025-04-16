@@ -1,0 +1,116 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Daten für CoffeeShop-Webseite verwenden
+- Location: C:\Users\azebaze\Playwright-Kurs\testdaten_generator\APIDataCoffeeShop.spec.ts:7:5
+
+# Error details
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('#login-submit')
+    - locator resolved to <input type="button" value="Login" id="login-submit" onclick="checkLoginPassword()"/>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is not visible
+    - retrying click action
+      - waiting 100ms
+    48 × waiting for element to be visible, enabled and stable
+       - element is not visible
+     - retrying click action
+       - waiting 500ms
+
+    at LoginPage.submitLogin (C:\Users\azebaze\Playwright-Kurs\Pages\LoginPage.ts:35:38)
+    at C:\Users\azebaze\Playwright-Kurs\testdaten_generator\APIDataCoffeeShop.spec.ts:71:21
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - link:
+    - img
+  - link "0":
+    - img
+    - text: "0"
+  - link "Login"
+  - navigation:
+    - link "Home"
+    - link "About"
+    - link "Shop"
+    - link "Contact"
+- heading "Feinster Kaffee" [level=1]
+- paragraph: In unserem kleinen Webshop bieten wir die tollsten Kaffeespezialitäten
+- link "Auf zum Kaffee"
+- img
+- text: "Auch für Profis: Bohnen von höchster Qualität ❮ ❯"
+- contentinfo:
+  - text: ˄
+  - link "AGB"
+  - paragraph: Finetest Coffee c/o Coffeeshop Inc.
+  - paragraph: Teststraße 123
+  - paragraph: 12345 Testingen
+  - paragraph:
+    - link "finetest@coffee.inc"
+  - paragraph: Version_2.0.1 / Sprint 0
+```
+
+# Test source
+
+```ts
+   1 | import { Page, Locator } from '@playwright/test';
+   2 |
+   3 | export class LoginPage {
+   4 |     readonly page: Page;
+   5 |     readonly usernameField: Locator;
+   6 |     readonly passwordField: Locator;
+   7 |     readonly loginButton: Locator;
+   8 |     readonly loginSubmitButton: Locator;
+   9 |
+  10 |     constructor(page: Page) {
+  11 |         this.page = page;
+  12 |         this.usernameField = page.locator('#login-username');
+  13 |         this.passwordField = page.locator('#login-password');
+  14 |         this.loginButton = page.locator('#accountbar > a');
+  15 |         this.loginSubmitButton = page.locator('#login-submit');
+  16 |     }
+  17 |
+  18 |     async navigateTo() {
+  19 |         await this.page.goto('http://10.40.226.38/Bootcamp_Bench/index.php');
+  20 |         console.log("📌 CoffeeShop-Webseite geladen");
+  21 |     }
+  22 |
+  23 |     async clickLoginButton() {
+  24 |         await this.loginButton.click();
+  25 |         console.log("✅ Auf Login geklickt");
+  26 |     }
+  27 |
+  28 |     async fillLoginForm(username: string, password: string) {
+  29 |         await this.usernameField.type(username, { delay: 100 });
+  30 |         await this.passwordField.type(password, { delay: 100 });
+  31 |         console.log("✅ Login-Formular ausgefüllt");
+  32 |     }
+  33 |
+  34 |     async submitLogin() {
+> 35 |         await this.loginSubmitButton.click();
+     |                                      ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  36 |         console.log("✅ Login abgeschickt");
+  37 |     }
+  38 |
+  39 |     async isLoginSuccessful() {
+  40 |         const successMessage = this.page.locator('#logout-button');
+  41 |         return successMessage.isVisible();
+  42 |     }
+  43 | }
+  44 |
+```

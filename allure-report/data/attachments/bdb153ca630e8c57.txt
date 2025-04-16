@@ -1,0 +1,15 @@
+❌ Fehler beim Exportieren von Daten als j (Versuch 1): Fehler beim Export als j: 500 - Internal Server Error
+❌ Fehler beim Exportieren von Daten als j: Fehler beim Export als j: 500 - Internal Server Error
+❌ Fehler beim Exportieren von Daten als s (Versuch 1): apiRequestContext.get: read ECONNRESET
+Call log:
+  - → GET http://localhost:8000/export_data/s
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.6998.35 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+
+❌ Fehler beim Exportieren von Daten als s (Versuch 2): Fehler beim Export als s: 500 - Internal Server Error
+❌ Fehler beim Exportieren von Daten als s: Fehler beim Export als s: 500 - Internal Server Error
+❌ Fehler beim Exportieren von Daten als o (Versuch 1): Fehler beim Export als o: 500 - Internal Server Error
+❌ Fehler beim Exportieren von Daten als o: Fehler beim Export als o: 500 - Internal Server Error
+❌ Fehler beim Exportieren von Daten als n (Versuch 1): Fehler beim Export als n: 500 - Internal Server Error
+❌ Fehler beim Exportieren von Daten als n: Fehler beim Export als n: 500 - Internal Server Error

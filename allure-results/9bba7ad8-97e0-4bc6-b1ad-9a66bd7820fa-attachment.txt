@@ -1,0 +1,52 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: qnerger
+🔑 Passwort: Tj42PavBm_AM
+🔑 Passwort_widerholen: Tj42PavBm_AM
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Dieser Name ist verfügbar  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: edwin97
+🔑 Passwort: &MQ2zKKjcH39
+🔑 Passwort_widerholen: &MQ2zKKjcH39
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Dieser Name ist verfügbar  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: mariusz82
+🔑 Passwort: G6J*g#XJs%!M
+🔑 Passwort_widerholen: G6J*g#XJs%!M
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Dieser Name ist verfügbar  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: domenico66
+🔑 Passwort: %4U*cvyEVHSd
+🔑 Passwort_widerholen: %4U*cvyEVHSd
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten:   

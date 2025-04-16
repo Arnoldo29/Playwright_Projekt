@@ -1,0 +1,3 @@
+📡 API-Request an: http://localhost:8001/generate/registrierung/5
+🔄 Statuscode: 404
+📩 Antwort: {"detail":"Not Found"}

@@ -1,0 +1,15 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"lukezimmermann","passwort":"_1mfbE#z@zqn","passwort_wiederholen":"_1mfbE#z@zqn","AGB akzeptieren":false},{"benutzername":"kacpersaluda","passwort":"u3gxLC8r@^Gp","passwort_wiederholen":"u3gxLC8r@^Gp","AGB akzeptieren":true},{"benutzername":"viktor16","passwort":"!(%9ehofgl3V","passwort_wiederholen":"!(%9ehofgl3V","AGB akzeptieren":false},{"benutzername":"lucas90","passwort":"UDK3O8BjB^kU","passwort_wiederholen":"UDK3O8BjB^kU","AGB akzeptieren":true},{"benutzername":"rowanvandekooij","passwort":"OtEMjM2y@9gQ","passwort_wiederholen":"OtEMjM2y@9gQ","AGB akzeptieren":false}]
+📡 API-Request an: http://localhost:8000/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"liamsperl","passwort":")97AAk6pP2Gz"},{"benutzername":"mhoffmann","passwort":"8khT&is9_+8I"},{"benutzername":"noelleketting","passwort":"XBG*!djaVs8O"},{"benutzername":"sporrilinus","passwort":"jyzA7Y!#s)35"},{"benutzername":"liwia60","passwort":"K7TrNfJuK)9n"}]
+📡 API-Request an: http://localhost:8000/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"Loep","vorname":"Maurycy","straße":"Traugutta","stadt":"Badibling","postleitzahl":"24-479","land":"Niederlande","telefonnummer":"+31(0)381 351184","alter":25,"geschlecht":"Männlich","email":"artur70@example.com"},{"nachname":"Döring","vorname":"Gustaw","straße":"Jens-Jessel-Straße","stadt":"Konstanz","postleitzahl":"7767VM","land":"Polen","telefonnummer":"+31(0)203-611038","alter":25,"geschlecht":"Divers","email":"zbindensereina@example.net"},{"nachname":"Dietrich","vorname":"Julita","straße":"Hermannstrasse","stadt":"Spremberg","postleitzahl":"6171","land":"Deutschland","telefonnummer":"071 520 48 35","alter":81,"geschlecht":"Weiblich","email":"livia78@example.com"},{"nachname":"Meister","vorname":"Cas","straße":"Thommenstrasse","stadt":"Itens","postleitzahl":"06476","land":"Österreich","telefonnummer":"+48 795 715 049","alter":93,"geschlecht":"Keine Angabe","email":"qvan-salmen@example.net"},{"nachname":"Fischer","vorname":"Mason","straße":"Lucystraat","stadt":"Tczew","postleitzahl":"6570JR","land":"Deutschland","telefonnummer":"+41 24 707 16 28","alter":70,"geschlecht":"Keine Angabe","email":"emanuel48@example.org"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8000/export_data/j
+📡 Export-Request an: http://localhost:8000/export_data/s
+📡 Export-Request an: http://localhost:8000/export_data/o
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/n

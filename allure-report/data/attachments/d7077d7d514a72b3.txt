@@ -1,0 +1,17 @@
+📌 Seite geladen
+✅ Seitentitel geprüft: API_Neu
+✅ 'registrierung' als Datentyp ausgewählt
+📌 5 Datensätze eingegeben
+✅ 5 gültige Datensätze generiert! erfolgreich generiert
+✅ 'login' als Datentyp ausgewählt
+📌 5 Datensätze eingegeben
+✅ 5 gültige Datensätze generiert! erfolgreich generiert
+✅ 'profil' als Datentyp ausgewählt
+📌 5 Datensätze eingegeben
+✅ 5 gültige Datensätze generiert! erfolgreich generiert
+✅ Daten gespeichert: coffeeshop_testdata.json
+📂 Dropdown für Exportformate geöffnet
+📌 Format 'json' ausgewählt
+⬇️ Exportvorgang für 'json' gestartet
+✅ Datei im Format 'json' heruntergeladen: valid_data.json
+📂 Dropdown für Exportformate geöffnet

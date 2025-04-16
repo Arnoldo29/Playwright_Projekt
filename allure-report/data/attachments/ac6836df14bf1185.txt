@@ -1,0 +1,6 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: fstalder
+🔑 Passwort: n7#gZo%c_mS7
+🔑 Passwort_widerholen: n7#gZo%c_mS7
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden

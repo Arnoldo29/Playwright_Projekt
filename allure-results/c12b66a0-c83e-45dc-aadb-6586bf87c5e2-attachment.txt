@@ -1,0 +1,14 @@
+📡 API-Request an: http://localhost:8001/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"marianna83","passwort":"s!0InEuFPl%","passwort_wiederholen":"s!0InEuFPl%","AGB akzeptieren":true},{"benutzername":"tknuf","passwort":"t%e8PW7ipog3YZBPRS","passwort_wiederholen":"t%e8PW7ipog3YZBPRS","AGB akzeptieren":false},{"benutzername":"rouvenaebi","passwort":"s6Qiq4NQ!d95IaU","passwort_wiederholen":"s6Qiq4NQ!d95IaU","AGB akzeptieren":true},{"benutzername":"jkazberuk","passwort":"@6Vq%%9A","passwort_wiederholen":"@6Vq%%9A","AGB akzeptieren":true},{"benutzername":"eleonore77","passwort":"$5syQrocFQdLv@N","passwort_wiederholen":"$5syQrocFQdLv@N","AGB akzeptieren":false}]
+📡 API-Request an: http://localhost:8001/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"wirzcamilla","passwort":"CH7xc5EeX7$5GgYC"},{"benutzername":"bhartung","passwort":"%esVy5$aW8"},{"benutzername":"wfrey","passwort":"71Ow8af!*61H"},{"benutzername":"emil14","passwort":"*FFjTB2a$3JYaVF"},{"benutzername":"moira09","passwort":"m@VVGq$wPq4"}]
+📡 API-Request an: http://localhost:8001/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"Weber","vorname":"Jack","straße":"Svetlana-Sauer-Platz","stadt":"Feanwâlden","postleitzahl":"91331","land":"Palästinensische Gebiete","telefonnummer":"+31(0)63 5315870","alter":18,"geschlecht":"Weiblich","email":"zmeister@example.com"},{"nachname":"Kierepka","vorname":"Kalina","straße":"Paula-Kreiner-Platz","stadt":"Gerasdorf bei Wien","postleitzahl":"6959","land":"Demokratische Volksrepublik Korea","telefonnummer":"+49(0)4174 494564","alter":80,"geschlecht":"Männlich","email":"holmknappe@example.com"},{"nachname":"Gschaider","vorname":"Felix","straße":"Sadowa","stadt":"Zollikon","postleitzahl":"10620","land":"Madagaskar","telefonnummer":"+41 27 323 74 31","alter":22,"geschlecht":"Männlich","email":"hafnerilona@example.net"},{"nachname":"Kobelt","vorname":"Robert","straße":"Noudsingel","stadt":"Liempde","postleitzahl":"3852VC","land":"Tschad","telefonnummer":"+43 4251 44476 718","alter":21,"geschlecht":"Weiblich","email":"rexhep59@example.org"},{"nachname":"Kohler","vorname":"Grazia","straße":"Starowiejska","stadt":"Oleśnica","postleitzahl":"8767","land":"Yemen","telefonnummer":"+48 531 347 783","alter":64,"geschlecht":"Männlich","email":"ubeyer@example.net"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8001/export_data/j
+📡 Export-Request an: http://localhost:8001/export_data/s
+📡 Export-Request an: http://localhost:8001/export_data/o
+📡 Export-Request an: http://localhost:8001/export_data/n

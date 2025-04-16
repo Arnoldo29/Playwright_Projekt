@@ -1,0 +1,113 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Daten für CoffeeShop generieren und exportieren
+- Location: C:\Users\azebaze\Playwright-Kurs\testdaten_generator\DatenGenerieren.spec.ts:5:5
+
+# Error details
+
+```
+Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8501/
+Call log:
+  - navigating to "http://localhost:8501/", waiting until "load"
+
+    at ExportPage.goto (C:\Users\azebaze\Playwright-Kurs\Pages\API_Test.page.ts:19:25)
+    at C:\Users\azebaze\Playwright-Kurs\testdaten_generator\DatenGenerieren.spec.ts:9:22
+```
+
+# Page snapshot
+
+```yaml
+- heading "This site can’t be reached" [level=1]
+- paragraph:
+  - strong: localhost
+  - text: refused to connect.
+- paragraph: "Try:"
+- list:
+  - listitem: Checking the connection
+  - listitem:
+    - link "Checking the proxy and the firewall"
+- text: ERR_CONNECTION_REFUSED
+- button "Reload"
+- button "Details"
+```
+
+# Test source
+
+```ts
+   1 | import { Page, expect } from '@playwright/test';
+   2 |
+   3 | export class ExportPage {
+   4 |     readonly page: Page;
+   5 |     readonly dropdown;
+   6 |     readonly exportFormat;
+   7 |     readonly generateButton;
+   8 |     readonly exportButton;
+   9 |
+  10 |     constructor(page: Page) {
+  11 |         this.page = page;
+  12 |         this.dropdown = page.getByRole('combobox', { name: /Datentyp wählen/i });
+  13 |         this.exportFormat = page.getByRole('combobox', { name: /Exportformat auswählen/i });
+  14 |         this.generateButton = page.getByRole('button', { name: /Daten generieren/i });
+  15 |         this.exportButton = page.getByRole('button', { name: /Daten exportieren/i });
+  16 |     }
+  17 |
+  18 |     async goto(url: string) {
+> 19 |         await this.page.goto(url);
+     |                         ^ Error: page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:8501/
+  20 |         console.log("📌 Seite geladen");
+  21 |         await this.page.waitForTimeout(2000);
+  22 |     }
+  23 |
+  24 |     async verifyTitle(expectedTitle: string) {
+  25 |         await expect(this.page).toHaveTitle(expectedTitle);
+  26 |         console.log(`✅ Seitentitel geprüft: ${expectedTitle}`);
+  27 |         await this.page.waitForTimeout(2000);
+  28 |     }
+  29 |
+  30 |     async selectDataType(dataType: string) {
+  31 |         await this.dropdown.click();
+  32 |         await this.page.locator(`text=${dataType}`).first().click();
+  33 |         await expect(this.dropdown).toHaveAttribute('aria-label', new RegExp(`Selected ${dataType}`, 'i'));
+  34 |         console.log(`✅ '${dataType}' als Datentyp ausgewählt`);
+  35 |         await this.page.waitForTimeout(2000);
+  36 |     }
+  37 |
+  38 |     async enterDataCount(count: number) {
+  39 |         await this.page.fill('input[type="number"]', count.toString());
+  40 |         console.log(`📌 ${count} Datensätze eingegeben`);
+  41 |         await this.page.waitForTimeout(2000);
+  42 |     }
+  43 |
+  44 |     async generateData() {
+  45 |         await this.generateButton.click();
+  46 |         await expect(this.page.locator(`text=${5} Datensätze generiert!`)).toBeVisible({ timeout: 10000 });
+  47 |         console.log("✅ Daten erfolgreich generiert");
+  48 |         await this.page.waitForTimeout(2000);
+  49 |     }
+  50 |
+  51 |     async exportData(format: string, fileExtension: string) {
+  52 |         await this.exportFormat.click();
+  53 |         await this.page.locator(`text=${format}`).first().click();
+  54 |         await expect(this.exportFormat).toHaveAttribute('aria-label', new RegExp(`Selected ${format}`, 'i'));
+  55 |         console.log(`✅ '${format}' als Exportformat ausgewählt`);
+  56 |         
+  57 |
+  58 |         await this.exportButton.click();
+  59 |         const [download] = await Promise.all([
+  60 |             this.page.waitForEvent('download'),
+  61 |             this.page.click(`button:has-text("📥 Download ${format.toUpperCase()}")`)
+  62 |         ]);
+  63 |
+  64 |         expect(download.suggestedFilename()).toContain(`data.${fileExtension}`);
+  65 |         console.log(`✅ ${format.toUpperCase()}-Daten exportiert`);
+  66 |         //await this.page.waitForTimeout(2000);
+  67 |     }
+  68 | }
+  69 |
+```

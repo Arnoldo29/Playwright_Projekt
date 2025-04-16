@@ -1,0 +1,22 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'maxim11',
+      passwort: 'pu4MLUB8o@',
+      passwort_wiederholen: 'pu4MLUB8o@',
+      'AGB akzeptieren': true
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'vsteuer@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    }
+  ]
+}
+🔹 Verwendete Testdaten:
+👤 Benutzername: maxim11
+🔑 Passwort: pu4MLUB8o@
+🔑 Passwort_wiederholen: pu4MLUB8o@

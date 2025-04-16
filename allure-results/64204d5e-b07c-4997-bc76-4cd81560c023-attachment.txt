@@ -1,0 +1,17 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"haasluljeta","passwort":"Y4Bvb)z1Q7h(","passwort_wiederholen":"Y4Bvb)z1Q7h(","AGB akzeptieren":false},{"benutzername":"giselenaf","passwort":"^2modP2lZ(U&","passwort_wiederholen":"^2modP2lZ(U&","AGB akzeptieren":false},{"benutzername":"aidenelsemulder","passwort":"*^_F$fe(X8+V","passwort_wiederholen":"*^_F$fe(X8+V","AGB akzeptieren":true},{"benutzername":"kyano23","passwort":"^nADCwk&Y&0_","passwort_wiederholen":"^nADCwk&Y&0_","AGB akzeptieren":true},{"benutzername":"lenahaiden","passwort":")2Eh1!+k#qPw","passwort_wiederholen":")2Eh1!+k#qPw","AGB akzeptieren":true}]
+📡 API-Request an: http://localhost:8000/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"antonietta50","passwort":"QJ4Xb8qWX2)7"},{"benutzername":"budigpeer","passwort":"+lS7AWyyexy^"},{"benutzername":"krzysztofsawko","passwort":"@qW1&qZfH7gw"},{"benutzername":"kimterry","passwort":"H8IN#@ut&0Up"},{"benutzername":"ikas","passwort":"if^%gJw3DK&9"}]
+📡 API-Request an: http://localhost:8000/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"de Hoog","vorname":"Mieszko","straße":"Beyergasse","stadt":"Aesch","postleitzahl":"7616","land":"Schweiz","telefonnummer":"(056) 9715058","alter":60,"geschlecht":"Divers","email":"vgraf@example.net"},{"nachname":"Momberg","vorname":"Heini","straße":"Walther-Lübs-Allee","stadt":"Annen","postleitzahl":"3233VW","land":"Niederlande","telefonnummer":"055 272 44 78","alter":80,"geschlecht":"Männlich","email":"lilianesalzer@example.com"},{"nachname":"Hethur","vorname":"Ben","straße":"Weibelstrasse","stadt":"Frederiksoord","postleitzahl":"7025","land":"Österreich","telefonnummer":"+43 353439687055","alter":94,"geschlecht":"Divers","email":"gertrude61@example.org"},{"nachname":"Imhof","vorname":"Ariane","straße":"Gotthilf-Mies-Straße","stadt":"Geras","postleitzahl":"4913WP","land":"Schweiz","telefonnummer":"020 9426197","alter":94,"geschlecht":"Keine Angabe","email":"janick90@example.com"},{"nachname":"Loska","vorname":"Elise","straße":"Jennistrasse","stadt":"Schwerin","postleitzahl":"19-782","land":"Deutschland","telefonnummer":"(0747)-770405","alter":21,"geschlecht":"Divers","email":"sabinawidmer@example.net"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8000/export_data/j
+📡 Export-Request an: http://localhost:8000/export_data/s
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/o
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/n
+Verbindung zurückgesetzt. Versuche es erneut...

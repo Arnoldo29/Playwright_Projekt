@@ -1,0 +1,59 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: brunoleonhartsberger
+🔑 Passwort: E(gFf%UQcu85
+🔑 Passwort_widerholen: E(gFf%UQcu85
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Bitte einen gültigen Namen eingeben:4-12 Zeichen: a-z, A-Z, 0-9, Umlaute  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: tamarapinter
+🔑 Passwort: %vBDiA&3*C&5
+🔑 Passwort_widerholen: %vBDiA&3*C&5
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Dieser Name ist verfügbar  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: helenaschmoelzer
+🔑 Passwort: g6HAS+2a$yyl
+🔑 Passwort_widerholen: g6HAS+2a$yyl
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Bitte einen gültigen Namen eingeben:4-12 Zeichen: a-z, A-Z, 0-9, Umlaute  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: gustawluszczyk
+🔑 Passwort: j&7Qtizu@dNM
+🔑 Passwort_widerholen: j&7Qtizu@dNM
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Bitte einen gültigen Namen eingeben:4-12 Zeichen: a-z, A-Z, 0-9, Umlaute  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: wachterdaniela
+🔑 Passwort: OU2LcY5z!kBF
+🔑 Passwort_widerholen: OU2LcY5z!kBF
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt

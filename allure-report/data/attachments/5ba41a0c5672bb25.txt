@@ -1,0 +1,76 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'dorapreiss',
+      passwort: 'CgOFr1gH$$9',
+      passwort_wiederholen: 'CgOFr1gH$$9',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'christine17',
+      passwort: 'd527TugIVY@Y3Qyi',
+      passwort_wiederholen: 'd527TugIVY@Y3Qyi',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'heinzpeter04',
+      passwort: 'Vn9IHiIqe@W!nsoMi1@',
+      passwort_wiederholen: 'Vn9IHiIqe@W!nsoMi1@',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'cberthold',
+      passwort: 'xeNsps!!!2SpIqPC8',
+      passwort_wiederholen: 'xeNsps!!!2SpIqPC8',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'merleschrant',
+      passwort: 'h*@8KG5aqwLm7',
+      passwort_wiederholen: 'h*@8KG5aqwLm7',
+      'AGB akzeptieren': true
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'gerold25@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'hospboris@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'wleunberger@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'rosantoni@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'stephanfleischmann@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    }
+  ]
+}
+🔹 Verwendete ungültige Testdaten:
+👤 Benutzername: hospboris@#
+🔑 Passwort: abc
+🔑 Passwort_wiederholen: abc
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt

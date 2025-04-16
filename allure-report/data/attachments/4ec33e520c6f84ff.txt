@@ -1,0 +1,13 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: blasererol
+🔑 Passwort: !eWgFfRP16
+🔑 Passwort_widerholen: !eWgFfRP16
+📌 CoffeeShop-Webseite geladen
+✅ Auf Accountbar geklickt
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+✅ Registrierung erfolgreich!
+📌 CoffeeShop-Webseite geladen
+✅ Login-Formular ausgefüllt

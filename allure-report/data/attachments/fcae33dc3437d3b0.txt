@@ -1,0 +1,40 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'jakuborkisz',
+      passwort: '@*8H@wZv',
+      passwort_wiederholen: '@*8H@wZv',
+      'AGB akzeptieren': false
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'knaser@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    }
+  ]
+}
+🔹 Verwendete Testdaten:
+👤 Benutzername: jakuborkisz
+🔑 Passwort: @*8H@wZv
+🔑 Passwort_wiederholen: @*8H@wZv
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+✅ Gültige Testdaten gefunden, Registrierung wird fortgesetzt.
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+✅ Erfolgsmeldung erhalten: 'Deine Registrierung war erfolgreich!'
+✅ OK-Button geklickt
+📌 Zurück zur Hauptseite
+✅ Auf Login geklickt
+✅ Login-Formular ausgefüllt
+✅ Login abgeschickt
+🎉 Erfolgreich eingeloggt!

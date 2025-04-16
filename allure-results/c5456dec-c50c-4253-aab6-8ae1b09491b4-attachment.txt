@@ -1,0 +1,55 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: filipthiel
+🔑 Passwort: LzHPw7gN*VQ8HibEs$
+🔑 Passwort_widerholen: LzHPw7gN*VQ8HibEs$
+📌 CoffeeShop-Webseite geladen
+✅ Auf Accountbar geklickt
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+⚠️ Ungültige Daten: filipthiel
+🔹 Verwendete Testdaten:
+👤 Benutzername: verdaleah
+🔑 Passwort: %0vEwvZIxg
+🔑 Passwort_widerholen: %0vEwvZIxg
+📌 CoffeeShop-Webseite geladen
+✅ Auf Accountbar geklickt
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+⚠️ Ungültige Daten: verdaleah
+🔹 Verwendete Testdaten:
+👤 Benutzername: antonius19
+🔑 Passwort: NWuL34ezxe9k!XYpq
+🔑 Passwort_widerholen: NWuL34ezxe9k!XYpq
+📌 CoffeeShop-Webseite geladen
+✅ Auf Accountbar geklickt
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+⚠️ Ungültige Daten: antonius19
+🔹 Verwendete Testdaten:
+👤 Benutzername: ujacquot
+🔑 Passwort: R!$N1qGnm*
+🔑 Passwort_widerholen: R!$N1qGnm*
+📌 CoffeeShop-Webseite geladen
+✅ Auf Accountbar geklickt
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+⚠️ Ungültige Daten: ujacquot
+🔹 Verwendete Testdaten:
+👤 Benutzername: emin75
+🔑 Passwort: 1iXxy3zW%JCILYJMPM
+🔑 Passwort_widerholen: 1iXxy3zW%JCILYJMPM
+📌 CoffeeShop-Webseite geladen
+✅ Auf Accountbar geklickt
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+⚠️ Ungültige Daten: emin75

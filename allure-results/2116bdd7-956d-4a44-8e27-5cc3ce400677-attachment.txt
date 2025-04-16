@@ -1,0 +1,32 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'klehmann',
+      passwort: '@xR4HYkeKENY27',
+      passwort_wiederholen: '@xR4HYkeKENY27',
+      'AGB akzeptieren': true
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'jkrause@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    }
+  ]
+}
+🔹 Verwendete ungültige Testdaten:
+👤 Benutzername: jkrause@#
+🔑 Passwort: abc
+🔑 Passwort_wiederholen: abc
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten wurden erkannt, die Registrierung sollte fehlschlagen.
+✅ Fehler bei der Registrierung mit ungültigen Daten erwartet - Test bestanden!

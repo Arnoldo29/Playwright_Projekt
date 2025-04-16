@@ -1,0 +1,16 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"niermannkyan","passwort":"L+2Bk4&l@n&a","passwort_wiederholen":"L+2Bk4&l@n&a","AGB akzeptieren":false},{"benutzername":"maida77","passwort":"sEH(NUJ98KfX","passwort_wiederholen":"sEH(NUJ98KfX","AGB akzeptieren":false},{"benutzername":"syrokaalan","passwort":"Ps1zMBgc(qHq","passwort_wiederholen":"Ps1zMBgc(qHq","AGB akzeptieren":false},{"benutzername":"jerzysiergiej","passwort":"^)3OOBh&+D%%","passwort_wiederholen":"^)3OOBh&+D%%","AGB akzeptieren":true},{"benutzername":"jolandatobler","passwort":"7Pg&Zf@u)Afb","passwort_wiederholen":"7Pg&Zf@u)Afb","AGB akzeptieren":true}]
+📡 API-Request an: http://localhost:8000/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"mlynarzroza","passwort":"hS9A7nHt+9Dl"},{"benutzername":"jsteiner","passwort":"*cC2ImfrD!2K"},{"benutzername":"rhaindl","passwort":"dGJm48Isa#25"},{"benutzername":"schrammisabell","passwort":"2x@fY*SwB2_4"},{"benutzername":"juettnerberndt","passwort":"$JyG#)Cva3GL"}]
+📡 API-Request an: http://localhost:8000/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"Döhn","vorname":"Mary","straße":"Szymanowskiego","stadt":"Sint Anthonis","postleitzahl":"6052 OM","land":"Österreich","telefonnummer":"+43 (0) 2644 61259162","alter":82,"geschlecht":"Weiblich","email":"lensensamuel@example.net"},{"nachname":"Zuziak","vorname":"Maarten","straße":"Jungplatz","stadt":"Spui","postleitzahl":"27036","land":"Polen","telefonnummer":"062 420 40 28","alter":62,"geschlecht":"Keine Angabe","email":"ignacy80@example.com"},{"nachname":"van Este","vorname":"Nikolas","straße":"Mina-Ofner-Gasse","stadt":"Ebikon","postleitzahl":"24435","land":"Polen","telefonnummer":"060-1031904","alter":93,"geschlecht":"Keine Angabe","email":"schulzhelmuth@example.com"},{"nachname":"Geiger","vorname":"Elias","straße":"Gijspad","stadt":"Ilmenau","postleitzahl":"5370","land":"Polen","telefonnummer":"506 571 932","alter":56,"geschlecht":"Divers","email":"jerzy96@example.net"},{"nachname":"Hirt","vorname":"Joshua","straße":"Adriana-Schweiger-Weg","stadt":"Zawiercie","postleitzahl":"29-751","land":"Schweiz","telefonnummer":"32 978 33 72","alter":52,"geschlecht":"Divers","email":"wszalas@example.net"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8000/export_data/j
+📡 Export-Request an: http://localhost:8000/export_data/s
+📡 Export-Request an: http://localhost:8000/export_data/o
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/n
+Verbindung zurückgesetzt. Versuche es erneut...

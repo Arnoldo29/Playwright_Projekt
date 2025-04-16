@@ -1,0 +1,65 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: lanahafner
+🔑 Passwort: )54ZbjiRnIGP
+🔑 Passwort_widerholen: )54ZbjiRnIGP
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten:   
+🔹 Verwendete Testdaten:
+👤 Benutzername: aaltswessel
+🔑 Passwort: ^s%TwuziwNr4
+🔑 Passwort_widerholen: ^s%TwuziwNr4
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten:   
+🔹 Verwendete Testdaten:
+👤 Benutzername: reinbachersena
+🔑 Passwort: R5#o&)B&Q(Kh
+🔑 Passwort_widerholen: R5#o&)B&Q(Kh
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten:   
+🔹 Verwendete Testdaten:
+👤 Benutzername: fabian06
+🔑 Passwort: l*8qy^leh8SX
+🔑 Passwort_widerholen: l*8qy^leh8SX
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten:   
+🔹 Verwendete Testdaten:
+👤 Benutzername: fstalder
+🔑 Passwort: n7#gZo%c_mS7
+🔑 Passwort_widerholen: n7#gZo%c_mS7
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten:   

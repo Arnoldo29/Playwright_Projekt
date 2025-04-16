@@ -1,0 +1,62 @@
+[
+    {
+        "nachname":"L\u00f6ffler",
+        "vorname":"Ada",
+        "stra\u00dfe":"\u017burawia",
+        "stadt":"Olpe",
+        "postleitzahl":"67346",
+        "land":"Vietnam",
+        "telefonnummer":"+43 (0) 2576 01211101",
+        "alter":64,
+        "geschlecht":"Divers",
+        "email":"juliuszgabrych@example.org"
+    },
+    {
+        "nachname":"Was\u0105\u017cnik",
+        "vorname":"Priscilla",
+        "stra\u00dfe":"Zachodnia",
+        "stadt":"Belfeld",
+        "postleitzahl":"83-998",
+        "land":"Island",
+        "telefonnummer":"+41 52 768 30 09",
+        "alter":67,
+        "geschlecht":"M\u00e4nnlich",
+        "email":"clara61@example.org"
+    },
+    {
+        "nachname":"Stey",
+        "vorname":"Rico",
+        "stra\u00dfe":"Jost-Beier-Stra\u00dfe",
+        "stadt":"Oldenzijl",
+        "postleitzahl":"9198",
+        "land":"Mexico",
+        "telefonnummer":"+43 (0) 7327 60511381",
+        "alter":47,
+        "geschlecht":"Divers",
+        "email":"bhenric-van-den-nuwenhuse@example.com"
+    },
+    {
+        "nachname":"Michel",
+        "vorname":"Lidia",
+        "stra\u00dfe":"Kesslerstrasse",
+        "stadt":"Oranienburg",
+        "postleitzahl":"5619",
+        "land":"Dominica",
+        "telefonnummer":"+48 530 575 756",
+        "alter":63,
+        "geschlecht":"M\u00e4nnlich",
+        "email":"barbara91@example.net"
+    },
+    {
+        "nachname":"Reif",
+        "vorname":"Ignacy",
+        "stra\u00dfe":"Bociania",
+        "stadt":"Kriens",
+        "postleitzahl":"5776",
+        "land":"Antigua und Barbuda",
+        "telefonnummer":"+31(0)00-8539288",
+        "alter":24,
+        "geschlecht":"Keine Angabe",
+        "email":"grzegorzkopala@example.org"
+    }
+]

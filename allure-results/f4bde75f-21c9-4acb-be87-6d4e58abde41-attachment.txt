@@ -1,0 +1,24 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'petra63',
+      passwort: 'F9fjXk3x@%',
+      passwort_wiederholen: 'F9fjXk3x@%',
+      'AGB akzeptieren': false
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'silke57@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    }
+  ]
+}
+🔹 Verwendete Testdaten:
+👤 Benutzername: petra63
+🔑 Passwort: F9fjXk3x@%
+🔑 Passwort_wiederholen: F9fjXk3x@%
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden

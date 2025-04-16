@@ -1,0 +1,80 @@
+✅ Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'meyerwanda',
+      passwort: 'Odt48Zqcs!8h',
+      passwort_wiederholen: 'Odt48Zqcs!8h',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'langdelia',
+      passwort: '6FHeXqMA$',
+      passwort_wiederholen: '6FHeXqMA$',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'tmeister',
+      passwort: 'i!6M3Cub',
+      passwort_wiederholen: 'i!6M3Cub',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'ottogasser',
+      passwort: '%72zdFvE3iYIUS0$',
+      passwort_wiederholen: '%72zdFvE3iYIUS0$',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'ponceletbart',
+      passwort: '@E832Jto3d$',
+      passwort_wiederholen: '@E832Jto3d$',
+      'AGB akzeptieren': true
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'wkoczara@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'stylec@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'vmader@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'maurizio97@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'fiene81@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    }
+  ]
+}
+🔹 Verwendete ungültige Testdaten:
+👤 Benutzername: maurizio97@#
+🔑 Passwort: abc
+🔑 Passwort wiederholen: abc
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ Fehlermeldung für Benutzername erkannt.
+✅ Fehlermeldung für Passwort erkannt.
+ℹ️ Keine Fehlermeldung für Passwortwiederholung – wird in diesem Test nicht benötigt.
+✅ Fehlerhafte Eingaben wurden erkannt – Test erfolgreich abgeschlossen.

@@ -1,0 +1,16 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"reinbachersena","passwort":"R5#o&)B&Q(Kh","passwort_wiederholen":"R5#o&)B&Q(Kh","AGB akzeptieren":true},{"benutzername":"aaltswessel","passwort":"^s%TwuziwNr4","passwort_wiederholen":"^s%TwuziwNr4","AGB akzeptieren":true},{"benutzername":"fstalder","passwort":"n7#gZo%c_mS7","passwort_wiederholen":"n7#gZo%c_mS7","AGB akzeptieren":false},{"benutzername":"fabian06","passwort":"l*8qy^leh8SX","passwort_wiederholen":"l*8qy^leh8SX","AGB akzeptieren":false},{"benutzername":"lanahafner","passwort":")54ZbjiRnIGP","passwort_wiederholen":")54ZbjiRnIGP","AGB akzeptieren":false}]
+📡 API-Request an: http://localhost:8000/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"ruthildjuncken","passwort":"0VFht8!tm+02"},{"benutzername":"cecilia46","passwort":"(3VuRDVp!TZb"},{"benutzername":"filipdzika","passwort":"&9PXtCG#&R9b"},{"benutzername":"justyna27","passwort":"%&rxHaFq)+o5"},{"benutzername":"ugeiger","passwort":"YF5&u@qD$cDc"}]
+📡 API-Request an: http://localhost:8000/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"Symons","vorname":"Philippa","straße":"Denise-Götz-Weg","stadt":"Udenhout","postleitzahl":"8887","land":"Schweiz","telefonnummer":"+49(0)8321 00853","alter":58,"geschlecht":"Keine Angabe","email":"klosolaf@example.com"},{"nachname":"Kleibrink","vorname":"Dagmar","straße":"Hedda-Riehl-Ring","stadt":"Boksum","postleitzahl":"54001","land":"Polen","telefonnummer":"668 491 638","alter":73,"geschlecht":"Divers","email":"ronjaschrittwieser@example.net"},{"nachname":"Werner","vorname":"Dylan","straße":"Zürcherstrasse","stadt":"Płock","postleitzahl":"97-025","land":"Österreich","telefonnummer":"+49(0)5850 70428","alter":40,"geschlecht":"Männlich","email":"elsenaarliv@example.com"},{"nachname":"Suchojad","vorname":"Paul","straße":"Krakowska","stadt":"Merseburg","postleitzahl":"1816","land":"Schweiz","telefonnummer":"01712993794","alter":99,"geschlecht":"Männlich","email":"noemi44@example.org"},{"nachname":"Siering","vorname":"Melissa","straße":"Hövelring","stadt":"Zakopane","postleitzahl":"8699","land":"Deutschland","telefonnummer":"043 622 41 84","alter":80,"geschlecht":"Weiblich","email":"tolaglownia@example.org"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8000/export_data/j
+📡 Export-Request an: http://localhost:8000/export_data/s
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/o
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/n

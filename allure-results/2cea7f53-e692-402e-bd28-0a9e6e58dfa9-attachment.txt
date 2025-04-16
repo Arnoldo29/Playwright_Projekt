@@ -1,0 +1,18 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'fmaelzer',
+      passwort: 'm%6Qol!B',
+      passwort_wiederholen: 'm%6Qol!B',
+      'AGB akzeptieren': true
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'nicosailer@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    }
+  ]
+}

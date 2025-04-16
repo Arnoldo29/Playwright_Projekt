@@ -1,0 +1,22 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'manuela22',
+      passwort: '!7DXcTs9DUa',
+      passwort_wiederholen: '!7DXcTs9DUa',
+      'AGB akzeptieren': true
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'lineherzog@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    }
+  ]
+}
+🔹 Verwendete Testdaten:
+👤 Benutzername: manuela22
+🔑 Passwort: !7DXcTs9DUa
+🔑 Passwort_wiederholen: !7DXcTs9DUa

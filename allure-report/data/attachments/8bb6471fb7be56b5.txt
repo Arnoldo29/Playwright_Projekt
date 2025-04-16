@@ -1,0 +1,4 @@
+📌 Seite geladen
+✅ Seitentitel geprüft: API_Neu
+✅ 'registrierung' als Datentyp ausgewählt
+📌 5 Datensätze eingegeben

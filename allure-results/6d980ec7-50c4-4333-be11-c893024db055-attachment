@@ -1,0 +1,247 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Daten für CoffeeShop-Webseite verwenden
+- Location: C:\Users\azebaze\Playwright-Kurs\testdaten_generator\APIDataCoffeeShop.spec.ts:6:5
+
+# Error details
+
+```
+Error: page.type: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('#register-pwrep')
+    - locator resolved to <input name="pwrep" type="password" class="form input" id="register-pwrep" required="required" autocomplete="new-password" placeholder="Passwort wiederholen" pattern="^[A-Za-z\d@$!%*?]{8,20}$"/>
+  - elementHandle.type("^)3OOBh&+D%%")
+
+    at C:\Users\azebaze\Playwright-Kurs\testdaten_generator\APIDataCoffeeShop.spec.ts:94:20
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - link:
+    - img
+  - link "0":
+    - img
+    - text: "0"
+  - link "Login"
+  - navigation:
+    - link "Home"
+    - link "About"
+    - link "Shop"
+    - link "Contact"
+- heading "Nutzerkonto anlegen" [level=2]
+- textbox "Username": jerzysiergiej
+- text: "Bitte einen gültigen Namen eingeben: 4-12 Zeichen: a-z, A-Z, 0-9, Umlaute"
+- textbox "Passwort": ^)3OOBh&+D%%
+- text: "8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?"
+- textbox "Passwort wiederholen": ^)3O
+- text: Die Passwörter stimmen nicht überein
+- checkbox "Ja, ich habe die AGB gelesen und akzeptiere diese."
+- text: Ja, ich habe die
+- link "AGB"
+- text: gelesen und akzeptiere diese.
+- button "Registrieren"
+- contentinfo:
+  - text: ˄
+  - link "AGB"
+  - paragraph: Finetest Coffee c/o Coffeeshop Inc.
+  - paragraph: Teststraße 123
+  - paragraph: 12345 Testingen
+  - paragraph:
+    - link "finetest@coffee.inc"
+  - paragraph: Version_2.0.1 / Alle Features ohne Fehler
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { log } from 'console';
+   3 | import { promises as fs } from 'fs';
+   4 | import path from 'path';
+   5 |
+   6 | test('Daten für CoffeeShop-Webseite verwenden', async ({ page }) => {
+   7 |     const COFFEESHOP_URL = 'http://10.40.226.38/Bootcamp_Bench/index.php';
+   8 |
+   9 |     // Lade Testdaten aus der Datei
+   10 |     const testDataPath = path.resolve(__dirname, '../test-data/coffeeshop_testdata.json');
+   11 |     const rawData = await fs.readFile(testDataPath, 'utf-8');
+   12 |     const testData = JSON.parse(rawData);
+   13 |
+   14 |     // Prüfen, ob Registrierungsdaten in der JSON-Datei vorhanden sind
+   15 |     if (!Array.isArray(testData.registrierung) || testData.registrierung.length === 0) {
+   16 |         throw new Error("🚨 Fehler: Keine gültigen Registrierungsdaten in der JSON-Datei gefunden!");
+   17 |     }
+   18 |
+   19 |     let validUser = null;
+   20 |     
+   21 |     // Wiederhole, bis gültige Testdaten gefunden werden
+   22 |     while (testData.registrierung.length > 0) {
+   23 |         // Zufällige Testdaten auswählen
+   24 |         const randomIndex = Math.floor(Math.random() * testData.registrierung.length);
+   25 |         const randomUser = testData.registrierung[randomIndex];
+   26 |
+   27 |         // Prüfen, ob Benutzername und Passwort vorhanden sind
+   28 |         if (!randomUser.benutzername || !randomUser.passwort) {
+   29 |             testData.registrierung.splice(randomIndex, 1); // Ungültige Daten entfernen
+   30 |             continue;
+   31 |         }
+   32 |
+   33 |         const username = randomUser.benutzername;
+   34 |         const password = randomUser.passwort.trim();
+   35 |         const passwordRepeat = password; // Passwort-Wiederholung
+   36 |
+   37 |         console.log("🔹 Verwendete Testdaten:");
+   38 |         console.log(`👤 Benutzername: ${username}`);
+   39 |         console.log(`🔑 Passwort: ${password}`);
+   40 |         console.log(`🔑 Passwort_widerholen: ${passwordRepeat}`)
+   41 |     
+   42 |       
+   43 |
+   44 |         // CoffeeShop-Webseite aufrufen
+   45 |         await page.goto(COFFEESHOP_URL);
+   46 |         console.log("📌 CoffeeShop-Webseite geladen");
+   47 |
+   48 |         // Prüfen, ob das Logo vorhanden ist
+   49 |         expect(await page.$('#headlogo')).not.toBeNull();
+   50 |         console.log("✅ Logo ist vorhanden");
+   51 |
+   52 |         // Auf den Account-Button klicken
+   53 |         await page.click('#accountbar > a');
+   54 |         console.log("✅ Auf Accountbar geklickt");
+   55 |         await page.waitForTimeout(2000);
+   56 |
+   57 |         // Prüfen, ob die Login-Überschrift existiert
+   58 |         await expect(page.locator('#loginContainer > h2')).toBeVisible();
+   59 |         console.log("✅ Login-Container Überschrift gefunden");
+   60 |
+   61 |         // Auf den Registrierungs-Link klicken
+   62 |         await page.click('#loginContainer > div > a');
+   63 |         console.log("✅ Auf Registrierung geklickt");
+   64 |
+   65 |         // Warten, bis das Passwort-Wiederholungsfeld sichtbar ist
+   66 |         await page.waitForSelector('#register-pwrep', { state: 'visible', timeout: 10000 });
+   67 |
+   68 |         // Warten, bis das Passwortfeld sichtbar und interaktiv ist
+   69 |         await page.waitForSelector('#register-pw', { state: 'visible', timeout: 10000 });
+   70 |         await page.waitForSelector('#register-pw', { state: 'visible', timeout: 10000 });
+   71 |         if (!(await page.locator('#register-pw').isEnabled())) {
+   72 |             throw new Error("🚨 Fehler: Passwortfeld ist nicht aktiviert.");
+   73 |         }
+   74 |
+   75 |         // Prüfen, ob das Feld nicht disabled ist
+   76 |         await page.waitForFunction(() => {
+   77 |             const input = document.querySelector('#register-pw') as HTMLInputElement;
+   78 |             return input && !input.disabled;
+   79 |         });
+   80 |
+   81 |        // Debugging: Überprüfen Sie den Zustand des Passwortfelds
+   82 |         const isVisible = await page.locator('#register-pw').isVisible();
+   83 |         const isEnabled = await page.locator('#register-pw').isEnabled();
+   84 |         console.log(`🔍 Passwortfeld sichtbar: ${isVisible}`);
+   85 |         console.log(`🔍 Passwortfeld aktiviert: ${isEnabled}`);
+   86 |
+   87 |       // Scrollen Sie zum Passwortfeld
+   88 |         await page.locator('#register-pw').scrollIntoViewIfNeeded();
+   89 |
+   90 |         // Registrierungsformular ausfüllen
+   91 |         await page.type('#register-username', username, { delay: 100 });
+   92 |         await page.type('#register-pw', password, { delay: 50 });
+   93 |         //await page.fill('#register-pw', password);
+>  94 |         await page.type('#register-pwrep', passwordRepeat, { delay: 100 });
+      |                    ^ Error: page.type: Test timeout of 30000ms exceeded.
+   95 |         console.log("✅ Registrierungsformular ausgefüllt");
+   96 |
+   97 |         
+   98 |
+   99 |
+  100 |         // Prüfen, ob die eingegebenen Daten gültig sind
+  101 |         const usernameMessage = await page.locator('#usrmsg').textContent();
+  102 |         const userError = await page.locator('#repwmsg').textContent();
+  103 |         const passwordError = await page.locator('#pwmsg').textContent();
+  104 |
+  105 |         if (
+  106 |             usernameMessage?.includes("Dieser Name ist verfügbar") &&
+  107 |             (!userError || !userError.includes("Die Passwörter stimmen nicht überein")) &&
+  108 |            (!passwordError || !passwordError.includes("8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?"))
+  109 |         ) {
+  110 |            console.log("✅ Gültige Testdaten gefunden, Registrierung wird fortgesetzt.");
+  111 |            validUser = randomUser;
+  112 |            break;
+  113 |         } else {
+  114 |             console.log(`⚠️ Ungültige Daten: ${usernameMessage || ''} ${userError || ''} ${passwordError || ''}`);
+  115 |             testData.registrierung.splice(randomIndex, 1); // Entferne ungültige Daten
+  116 |             continue;
+  117 |         }
+  118 |      
+  119 |             
+  120 |         
+  121 |
+  122 |         //validUser = randomUser;
+  123 |         //break; // Falls gültige Daten gefunden wurden, die Schleife beenden
+  124 |     }
+  125 |
+  126 |     if (!validUser) {
+  127 |         throw new Error("❌ Keine gültigen Testdaten gefunden.");
+  128 |       
+  129 |     }
+  130 |
+  131 |     // AGB-Checkbox aktivieren
+  132 |     await page.check('#register-check');
+  133 |     console.log("✅ AGB akzeptiert");
+  134 |
+  135 |     // Registrierung abschicken
+  136 |     await page.click('body > content > div:nth-child(2) > div > form > div.reg.btn > input');
+  137 |     console.log("✅ Registrierung abgeschickt");
+  138 |
+  139 |     // Prüfen, ob die Erfolgsmeldung angezeigt wird
+  140 | const successMessage = await page.locator('#overlaysubmit > h2').filter({ hasText: "Deine Registrierung war erfolgreich!" });
+  141 | const confirmButton = page.locator('#overlaysubmit > button').filter({ hasText: "OK" });
+  142 |
+  143 | if (await successMessage.isVisible()) {
+  144 |     console.log("✅ Erfolgsmeldung erhalten: 'Deine Registrierung war erfolgreich!'");
+  145 |     
+  146 |     // Warten, bis der OK-Button sichtbar ist und dann klicken
+  147 |     await confirmButton.isVisible();
+  148 |     await confirmButton.click();
+  149 |     
+  150 |     console.log("✅ OK-Button geklickt");
+  151 | } else {
+  152 |     console.log(`⚠️ Keine gültige Erfolgsmeldung gefunden. Erhalten: '${successMessage || "Keine Nachricht"}'`);
+  153 | }
+  154 |
+  155 |
+  156 |     // Aktualisierte Testdaten speichern, um doppelte Nutzung zu vermeiden
+  157 |     await fs.writeFile(testDataPath, JSON.stringify(testData, null, 2), 'utf-8');
+  158 |     console.log("✅ Testdaten aktualisiert.");
+  159 |
+  160 |     // Zur Hauptseite zurückkehren
+  161 |     await page.goto(COFFEESHOP_URL);
+  162 |     console.log("📌 Zurück zur Hauptseite");
+  163 |
+  164 |     // Erneut auf Login klicken
+  165 |     await page.click('#accountbar > a');
+  166 |     console.log("✅ Auf Login geklickt");
+  167 |
+  168 |     // Login-Felder ausfüllen
+  169 |     await page.type('#login-username', validUser.benutzername, { delay: 200 });
+  170 |     await page.type('#login-password', validUser.passwort, { delay: 200 });
+  171 |     console.log("✅ Login-Formular ausgefüllt");
+  172 |
+  173 |     // Login absenden
+  174 |     await page.click('#login-submit');
+  175 |     console.log("✅ Login abgeschickt");
+  176 |
+  177 |     // Überprüfen, ob der Login erfolgreich war (Logout-Button sichtbar)
+  178 |     //await expect(page.locator('#logout-button')).toBeVisible();
+  179 |     //console.log("🎉 Erfolgreich eingeloggt!");
+  180 | });
+  181 |
+```

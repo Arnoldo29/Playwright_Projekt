@@ -1,0 +1,168 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Daten für CoffeeShop generieren und exportieren
+- Location: C:\Users\azebaze\Playwright-Kurs\testdaten_generator\DatenGenerieren.spec.ts:5:5
+
+# Error details
+
+```
+Error: Timed out 10000ms waiting for expect(locator).toBeVisible()
+
+Locator: locator('text=5 Datensätze generiert!')
+Expected: visible
+Received: <element(s) not found>
+Call log:
+  - expect.toBeVisible with timeout 10000ms
+  - waiting for locator('text=5 Datensätze generiert!')
+
+    at ExportPage.generateData (C:\Users\azebaze\Playwright-Kurs\Pages\API_Test.page.ts:58:43)
+    at C:\Users\azebaze\Playwright-Kurs\testdaten_generator\DatenGenerieren.spec.ts:19:9
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - button "Deploy"
+  - button
+- heading "Testdaten-Generator" [level=1]
+- text: registrierung
+- combobox "Selected registrierung. Datentyp wählen"
+- img "open"
+- spinbutton "Anzahl der Datensätze": "5"
+- button
+- button
+- button "🛠️ Gültige Daten generieren":
+  - paragraph: 🛠️ Gültige Daten generieren
+- alert:
+  - paragraph: 5 gültige Datensätze generiert!
+- button "Download as CSV"
+- button "Search"
+- button "Fullscreen"
+- button "❌ Ungültige Daten generieren":
+  - paragraph: ❌ Ungültige Daten generieren
+- heading "📤 Daten exportieren" [level=3]
+- text: json
+- combobox "Selected json. Exportformat"
+- img "open"
+- button "💾 Exportieren":
+  - paragraph: 💾 Exportieren
+- paragraph:
+  - text: API gestartet auf
+  - link "http://localhost:8001"
+```
+
+# Test source
+
+```ts
+   1 | import { Page, expect } from '@playwright/test';
+   2 |
+   3 | export class ExportPage {
+   4 |     readonly page: Page;
+   5 |     readonly dropdown;
+   6 |     readonly exportFormat;
+   7 |     readonly generateButton;
+   8 |     readonly exportButton;
+   9 |
+   10 |     constructor(page: Page) {
+   11 |         this.page = page;
+   12 |         this.dropdown = page.getByRole('combobox', { name: /Datentyp wählen/i });
+   13 |         this.exportFormat = page.getByRole('combobox', { name: /Exportformat auswählen/i });
+   14 |         this.generateButton = page.getByRole('button', { name: /Daten generieren/i });
+   15 |         this.exportButton = page.getByRole('button', { name: /Daten exportieren/i });
+   16 |     }
+   17 |
+   18 |     async goto(url: string) {
+   19 |         await this.page.goto(url);
+   20 |         console.log("📌 Seite geladen");
+   21 |         await this.page.waitForTimeout(2000);
+   22 |     }
+   23 |
+   24 |     async verifyTitle(expectedTitle: string) {
+   25 |         await expect(this.page).toHaveTitle(expectedTitle);
+   26 |         console.log(`✅ Seitentitel geprüft: ${expectedTitle}`);
+   27 |         await this.page.waitForTimeout(2000);
+   28 |     }
+   29 |
+   30 |     async selectDataType(dataType: string) {
+   31 |         await this.dropdown.click();
+   32 |         await this.page.locator(`text=${dataType}`).first().click();
+   33 |         await expect(this.dropdown).toHaveAttribute('aria-label', new RegExp(`Selected ${dataType}`, 'i'));
+   34 |         console.log(`✅ '${dataType}' als Datentyp ausgewählt`);
+   35 |         await this.page.waitForTimeout(2000);
+   36 |     }
+   37 |
+   38 |     async enterDataCount(count: number) {
+   39 |         await this.page.fill('input[type="number"]', count.toString());
+   40 |         console.log(`📌 ${count} Datensätze eingegeben`);
+   41 |         await this.page.waitForTimeout(2000);
+   42 |     }
+   43 |
+   44 |     async generateData(count: number) {
+   45 |         // Button für die Generierung der Daten auswählen
+   46 |         const generateButtonLocator = this.page.locator('#root > div:nth-child(1) > div.withScreencast > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-mtjnbi.eht7o1d4 > div > div > div > div:nth-child(4) > div > button > div');
+   47 |
+   48 |         // Stelle sicher, dass der Button sichtbar ist, bevor du darauf klickst
+   49 |         await expect(generateButtonLocator).toBeVisible({ timeout: 5000 });
+   50 |
+   51 |         // Klicke auf den Button, um die Daten zu generieren
+   52 |         await generateButtonLocator.click();
+   53 |         console.log(`✅ Daten erfolgreich generiert: ${count} Datensätze`);
+   54 |
+   55 |         // Bestätigung der Datengenerierung
+   56 |         const confirmationText = `${count} Datensätze generiert!`;
+   57 |         const confirmationLocator = this.page.locator(`text=${confirmationText}`);
+>  58 |         await expect(confirmationLocator).toBeVisible({ timeout: 10000 });
+      |                                           ^ Error: Timed out 10000ms waiting for expect(locator).toBeVisible()
+   59 |
+   60 |         await this.page.waitForTimeout(2000);
+   61 |     }
+   62 |     
+   63 |
+   64 |     async exportData(format: string, fileExtension: string) {
+   65 |         // Wählen des Exportformats im Dropdown
+   66 |         const exportFormatDropdown = this.page.locator('#root > div:nth-child(1) > div.withScreencast > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-mtjnbi.eht7o1d4 > div > div > div > div:nth-child(9) > div > div > div > div.st-ak.st-al.st-as.st-cl.st-bg.st-cm.st-bl > svg');
+   67 |         await expect(exportFormatDropdown).toBeVisible({ timeout: 5000 });
+   68 |     
+   69 |         // Öffnen des Exportformat Dropdowns
+   70 |         await exportFormatDropdown.click();
+   71 |     
+   72 |         // Auswahl des Formats (z.B. 'json', 'csv', 'xlsx', 'xml')
+   73 |         const formatOption = this.page.locator(`text=${format}`);
+   74 |         await expect(formatOption).toBeVisible({ timeout: 5000 });
+   75 |         await formatOption.click();
+   76 |     
+   77 |         // Bestätigen, dass das Format ausgewählt wurde
+   78 |         await expect(this.page.locator('#root > div:nth-child(1) > div.withScreencast > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-mtjnbi.eht7o1d4 > div > div > div > div:nth-child(9) > div > label > div > p')).toHaveText(format);
+   79 |         console.log(`✅ '${format}' als Exportformat ausgewählt`);
+   80 |     
+   81 |         // Export-Button lokalisieren und klicken
+   82 |         const exportButtonLocator = this.page.locator('#root > div:nth-child(1) > div.withScreencast > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-mtjnbi.eht7o1d4 > div > div > div > div:nth-child(10) > div > button > div > p');
+   83 |         await expect(exportButtonLocator).toBeVisible({ timeout: 5000 });
+   84 |         await exportButtonLocator.click();
+   85 |         console.log('✅ Export gestartet');
+   86 |     
+   87 |         // Warten auf den Download
+   88 |         const [download] = await Promise.all([
+   89 |             this.page.waitForEvent('download'),
+   90 |             this.page.locator('#root > div:nth-child(1) > div.withScreencast > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-mtjnbi.eht7o1d4 > div > div > div > div:nth-child(9) > div > button > div > p').click()
+   91 |         ]);
+   92 |     
+   93 |         // Überprüfen, ob der Download-Button den richtigen Dateinamen hat
+   94 |         expect(download.suggestedFilename()).toContain(`data.${fileExtension}`);
+   95 |         console.log(`✅ ${format.toUpperCase()}-Daten exportiert und heruntergeladen`);
+   96 |     
+   97 |         await this.page.waitForTimeout(2000);
+   98 |     }
+   99 |     
+  100 |     
+  101 |     
+  102 | }
+  103 |
+```

@@ -1,0 +1,15 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"jtrapp","passwort":"&uAU9CyhGu7Q","passwort_wiederholen":"&uAU9CyhGu7Q","AGB akzeptieren":true},{"benutzername":"filipesuter","passwort":"(Lv_Uv7zS77H","passwort_wiederholen":"(Lv_Uv7zS77H","AGB akzeptieren":true},{"benutzername":"spreeuwfabian","passwort":"UZW&SW(fD%48","passwort_wiederholen":"UZW&SW(fD%48","AGB akzeptieren":false},{"benutzername":"talbers","passwort":"orXVW$hB*(C7","passwort_wiederholen":"orXVW$hB*(C7","AGB akzeptieren":false},{"benutzername":"zgross","passwort":"KY_XS1Vxx$9J","passwort_wiederholen":"KY_XS1Vxx$9J","AGB akzeptieren":false}]
+📡 API-Request an: http://localhost:8000/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"folkert28","passwort":"QI9vRGCa%2Qy"},{"benutzername":"hanshenning51","passwort":"&EL#H2JeD1cn"},{"benutzername":"niels46","passwort":"KJyHHmGn&7xw"},{"benutzername":"rosnerleyla","passwort":"$C(R5BeCB#5q"},{"benutzername":"eowczarczak","passwort":"$9DPczi(ZUHQ"}]
+📡 API-Request an: http://localhost:8000/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"Mühle","vorname":"Aylin","straße":"Hofmannring","stadt":"Gapinge","postleitzahl":"8894","land":"Österreich","telefonnummer":"+43 (0) 6205 02992293","alter":65,"geschlecht":"Keine Angabe","email":"okorsman@example.net"},{"nachname":"Trapp","vorname":"Arkadiusz","straße":"Floortjebaan","stadt":"Jelenia Góra","postleitzahl":"4688","land":"Niederlande","telefonnummer":"+31(0)152 156373","alter":86,"geschlecht":"Männlich","email":"egliburak@example.net"},{"nachname":"Steinkellner","vorname":"Nina","straße":"Kolejowa","stadt":"Hinwil","postleitzahl":"3998","land":"Schweiz","telefonnummer":"0662/25510895","alter":28,"geschlecht":"Keine Angabe","email":"melcerkrzysztof@example.org"},{"nachname":"Czerner","vorname":"Zeynep","straße":"Bergerstrasse","stadt":"Żywiec","postleitzahl":"6127","land":"Schweiz","telefonnummer":"+31(0)22 8293995","alter":21,"geschlecht":"Divers","email":"wettsteinniclas@example.org"},{"nachname":"Reising","vorname":"Nikita","straße":"Schweizerstrasse","stadt":"Zawiercie","postleitzahl":"6656","land":"Österreich","telefonnummer":"+43 7393 84439 460","alter":99,"geschlecht":"Divers","email":"fsorgatz@example.org"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8000/export_data/j
+📡 Export-Request an: http://localhost:8000/export_data/s
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/o
+📡 Export-Request an: http://localhost:8000/export_data/n

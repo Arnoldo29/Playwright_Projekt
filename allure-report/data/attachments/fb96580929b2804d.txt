@@ -1,0 +1,74 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: suus94
+🔑 Passwort: 5)2*1Uwd)w2Z
+🔑 Passwort_widerholen: 5)2*1Uwd)w2Z
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Dieser Name ist verfügbar  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: igorkreczmer
+🔑 Passwort: 3PS4wYEtw!QM
+🔑 Passwort_widerholen: 3PS4wYEtw!QM
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Dieser Name ist schon vergeben.  
+🔹 Verwendete Testdaten:
+👤 Benutzername: dominikpicheta
+🔑 Passwort: Q&8nyJJyU%9Y
+🔑 Passwort_widerholen: Q&8nyJJyU%9Y
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Bitte einen gültigen Namen eingeben:4-12 Zeichen: a-z, A-Z, 0-9, Umlaute  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: orszulikroza
+🔑 Passwort: @mxWCf6*_5Ml
+🔑 Passwort_widerholen: @mxWCf6*_5Ml
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Dieser Name ist verfügbar  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: riacaspar
+🔑 Passwort: !qhAaPV63ccO
+🔑 Passwort_widerholen: !qhAaPV63ccO
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+✅ Gültige Testdaten gefunden, Registrierung wird fortgesetzt.
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+✅ Erfolgsmeldung erhalten: 'Deine Registrierung war erfolgreich!'
+✅ OK-Button geklickt
+✅ Testdaten aktualisiert.
+📌 Zurück zur Hauptseite
+✅ Auf Login geklickt
+✅ Login-Formular ausgefüllt
+✅ Login abgeschickt

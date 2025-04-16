@@ -1,0 +1,16 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"riacaspar","passwort":"!qhAaPV63ccO","passwort_wiederholen":"!qhAaPV63ccO","AGB akzeptieren":true},{"benutzername":"igorkreczmer","passwort":"3PS4wYEtw!QM","passwort_wiederholen":"3PS4wYEtw!QM","AGB akzeptieren":false},{"benutzername":"orszulikroza","passwort":"@mxWCf6*_5Ml","passwort_wiederholen":"@mxWCf6*_5Ml","AGB akzeptieren":true},{"benutzername":"dominikpicheta","passwort":"Q&8nyJJyU%9Y","passwort_wiederholen":"Q&8nyJJyU%9Y","AGB akzeptieren":false},{"benutzername":"suus94","passwort":"5)2*1Uwd)w2Z","passwort_wiederholen":"5)2*1Uwd)w2Z","AGB akzeptieren":true}]
+📡 API-Request an: http://localhost:8000/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"clemensfrey","passwort":"4NUull*p*PKz"},{"benutzername":"mudejost","passwort":"LpIAi++o(@2G"},{"benutzername":"quentinkeller","passwort":"2)$KrA6R*X9V"},{"benutzername":"shupevalerie","passwort":"1nH46m2*#0Ot"},{"benutzername":"fott","passwort":"qX_HaWPd03!#"}]
+📡 API-Request an: http://localhost:8000/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"Gerber","vorname":"Adriana","straße":"Mangoldweg","stadt":"Neuhausen","postleitzahl":"22-216","land":"Niederlande","telefonnummer":"+41 52 030 19 26","alter":76,"geschlecht":"Weiblich","email":"kudelkagabriel@example.com"},{"nachname":"Radzio","vorname":"Matthias","straße":"Liebeltgasse","stadt":"Ellertshaar","postleitzahl":"1761","land":"Deutschland","telefonnummer":"517 170 482","alter":64,"geschlecht":"Männlich","email":"blerinafrick@example.org"},{"nachname":"Kuhn","vorname":"Alexia","straße":"Eglistrasse","stadt":"Amstetten","postleitzahl":"5657","land":"Niederlande","telefonnummer":"+49(0)5324 58365","alter":51,"geschlecht":"Keine Angabe","email":"connywagenknecht@example.org"},{"nachname":"Hesse","vorname":"Timo","straße":"Prusa","stadt":"Jawor","postleitzahl":"6948","land":"Österreich","telefonnummer":"04885 48922 366","alter":90,"geschlecht":"Divers","email":"schieferleonard@example.com"},{"nachname":"Linder","vorname":"Arnold","straße":"Leonhard-Lindner-Straße","stadt":"Fürstenwalde","postleitzahl":"84-197","land":"Österreich","telefonnummer":"0662/31165952","alter":69,"geschlecht":"Keine Angabe","email":"yruijs@example.net"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8000/export_data/j
+📡 Export-Request an: http://localhost:8000/export_data/s
+📡 Export-Request an: http://localhost:8000/export_data/o
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/n
+Verbindung zurückgesetzt. Versuche es erneut...

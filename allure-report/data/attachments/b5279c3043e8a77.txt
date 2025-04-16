@@ -1,0 +1,27 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'petraweibel',
+      passwort: '@2l3tIXj3',
+      passwort_wiederholen: '@2l3tIXj3',
+      'AGB akzeptieren': true
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'tschurch@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    }
+  ]
+}
+🔹 Verwendete Testdaten:
+👤 Benutzername: petraweibel
+🔑 Passwort: @2l3tIXj3
+🔑 Passwort_wiederholen: @2l3tIXj3
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt

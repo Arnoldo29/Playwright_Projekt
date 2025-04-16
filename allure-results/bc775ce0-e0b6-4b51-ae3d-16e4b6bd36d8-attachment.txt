@@ -1,0 +1,9 @@
+📌 Seite geladen
+✅ Seitentitel geprüft: API_Neu
+✅ 'registrierung' als Datentyp ausgewählt
+📌 5 Datensätze eingegeben
+✅ 'login' als Datentyp ausgewählt
+📌 5 Datensätze eingegeben
+✅ 'profil' als Datentyp ausgewählt
+📌 5 Datensätze eingegeben
+✅ Daten gespeichert: coffeeshop_testdata.json

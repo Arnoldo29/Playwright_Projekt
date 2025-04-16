@@ -1,0 +1,1 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5

@@ -1,0 +1,240 @@
+{
+  "registrierung": {
+    "gültige_daten": [
+      {
+        "benutzername": "sboddaugh",
+        "passwort": "*zEANp1PA4wczci",
+        "passwort_wiederholen": "*zEANp1PA4wczci",
+        "AGB akzeptieren": true
+      },
+      {
+        "benutzername": "dwolzak",
+        "passwort": "yHHJxvr!wc948OXu",
+        "passwort_wiederholen": "yHHJxvr!wc948OXu",
+        "AGB akzeptieren": true
+      },
+      {
+        "benutzername": "ichrodtrud",
+        "passwort": "!MzWcKoKa6YZTc",
+        "passwort_wiederholen": "!MzWcKoKa6YZTc",
+        "AGB akzeptieren": false
+      },
+      {
+        "benutzername": "virginiakade",
+        "passwort": "1r0r4NuJwG%6yG",
+        "passwort_wiederholen": "1r0r4NuJwG%6yG",
+        "AGB akzeptieren": false
+      },
+      {
+        "benutzername": "hakanwilms",
+        "passwort": "D9$%4QXb5",
+        "passwort_wiederholen": "D9$%4QXb5",
+        "AGB akzeptieren": true
+      }
+    ],
+    "ungültige_daten": [
+      {
+        "benutzername": "eryk53@#",
+        "passwort": "abc",
+        "passwort_wiederholen": "abc",
+        "AGB akzeptieren": false
+      },
+      {
+        "benutzername": "evelynwalter@#",
+        "passwort": "abc",
+        "passwort_wiederholen": "abc",
+        "AGB akzeptieren": true
+      },
+      {
+        "benutzername": "btexier@#",
+        "passwort": "abc",
+        "passwort_wiederholen": "abc",
+        "AGB akzeptieren": true
+      },
+      {
+        "benutzername": "orkiszleonard@#",
+        "passwort": "abc",
+        "passwort_wiederholen": "abc",
+        "AGB akzeptieren": true
+      },
+      {
+        "benutzername": "ssalz@#",
+        "passwort": "abc",
+        "passwort_wiederholen": "abc",
+        "AGB akzeptieren": false
+      }
+    ]
+  },
+  "login": {
+    "gültige_daten": [
+      {
+        "benutzername": "sophiegaller",
+        "passwort": "*uv3n*H1y4rBWm"
+      },
+      {
+        "benutzername": "agnesmartin",
+        "passwort": "yR!V2y2vG8nYA%CK$"
+      },
+      {
+        "benutzername": "marlene16",
+        "passwort": "wAd74VKx2%"
+      },
+      {
+        "benutzername": "bweinberger",
+        "passwort": "zK*5Nn@1"
+      },
+      {
+        "benutzername": "kozuszekiwo",
+        "passwort": "pq!9kBm0"
+      }
+    ],
+    "ungültige_daten": [
+      {
+        "benutzername": "phillip43@#",
+        "passwort": "abc"
+      },
+      {
+        "benutzername": "annabelvan-dagsburg@#",
+        "passwort": "abc"
+      },
+      {
+        "benutzername": "matthiassimons@#",
+        "passwort": "abc"
+      },
+      {
+        "benutzername": "gustaw01@#",
+        "passwort": "abc"
+      },
+      {
+        "benutzername": "goestrovsky@#",
+        "passwort": "abc"
+      }
+    ]
+  },
+  "profil": {
+    "gültige_daten": [
+      {
+        "nachname": "van Oirschot",
+        "vorname": "Anna Maria",
+        "straße": "Eugsterstrasse",
+        "stadt": "Kołobrzeg",
+        "postleitzahl": "1538",
+        "land": "Sweden",
+        "telefonnummer": "518 278 848",
+        "alter": 27,
+        "geschlecht": "Keine Angabe",
+        "email": "jules76@example.com"
+      },
+      {
+        "nachname": "Brunner",
+        "vorname": "Cäcilia",
+        "straße": "Colinbaan",
+        "stadt": "Winterswijk Henxel",
+        "postleitzahl": "2706",
+        "land": "Niger",
+        "telefonnummer": "+43 (0) 3125 85164503",
+        "alter": 70,
+        "geschlecht": "Männlich",
+        "email": "gabor19@example.org"
+      },
+      {
+        "nachname": "Matacz",
+        "vorname": "Berthold",
+        "straße": "Guteallee",
+        "stadt": "Altheim",
+        "postleitzahl": "72705",
+        "land": "Australien",
+        "telefonnummer": "0662 12161 758",
+        "alter": 91,
+        "geschlecht": "Keine Angabe",
+        "email": "jsloka@example.com"
+      },
+      {
+        "nachname": "Sigrist",
+        "vorname": "Stefan",
+        "straße": "Dario-Fröschl-Gasse",
+        "stadt": "Tarnowskie Góry",
+        "postleitzahl": "6671 TG",
+        "land": "Gabun",
+        "telefonnummer": "+31(0)600-854085",
+        "alter": 28,
+        "geschlecht": "Männlich",
+        "email": "lkozon@example.net"
+      },
+      {
+        "nachname": "Fabian",
+        "vorname": "Aniela",
+        "straße": "Elizabethsteeg",
+        "stadt": "Katowice",
+        "postleitzahl": "4111MS",
+        "land": "Nepal",
+        "telefonnummer": "+43 (0) 2711 35369936",
+        "alter": 65,
+        "geschlecht": "Männlich",
+        "email": "vialelena@example.com"
+      }
+    ],
+    "ungültige_daten": [
+      {
+        "nachname": "Reischl",
+        "vorname": "Goran",
+        "straße": "Antoinette-Schenk-Ring",
+        "stadt": "Leipziger Land",
+        "postleitzahl": "4375",
+        "land": "Liberia",
+        "telefonnummer": "+41 44 898 77 84",
+        "alter": 85,
+        "geschlecht": "Weiblich",
+        "email": "ilias10@example.net"
+      },
+      {
+        "nachname": "Artner",
+        "vorname": "Kevin",
+        "straße": "Danilo-Täsche-Gasse",
+        "stadt": "Waren",
+        "postleitzahl": "44-043",
+        "land": "Namibia",
+        "telefonnummer": "+43 (0) 2722 66518701",
+        "alter": 47,
+        "geschlecht": "Weiblich",
+        "email": "malwina27@example.org"
+      },
+      {
+        "nachname": "van Dagsburg",
+        "vorname": "Mélanie",
+        "straße": "Mellebaan",
+        "stadt": "Aigle",
+        "postleitzahl": "2207 RI",
+        "land": "Thailand",
+        "telefonnummer": "(065) 5297675",
+        "alter": 86,
+        "geschlecht": "Weiblich",
+        "email": "meyerjustin@example.com"
+      },
+      {
+        "nachname": "Wirth",
+        "vorname": "Aylin",
+        "straße": "Herzogstrasse",
+        "stadt": "Kreuzlingen",
+        "postleitzahl": "55535",
+        "land": "Slowenien",
+        "telefonnummer": "+49(0)7542 39003",
+        "alter": 88,
+        "geschlecht": "Keine Angabe",
+        "email": "gvan-hamaland@example.org"
+      },
+      {
+        "nachname": "Rieger",
+        "vorname": "Karl-Dieter",
+        "straße": "Adelina-Werner-Straße",
+        "stadt": "Kallenkote",
+        "postleitzahl": "09217",
+        "land": "Papoea-Nieuw-Guinea",
+        "telefonnummer": "(08326) 15671",
+        "alter": 61,
+        "geschlecht": "Weiblich",
+        "email": "rosina51@example.org"
+      }
+    ]
+  }
+}

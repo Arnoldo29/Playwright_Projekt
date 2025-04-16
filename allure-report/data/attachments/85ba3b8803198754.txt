@@ -1,0 +1,63 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: syrokaalan
+🔑 Passwort: Ps1zMBgc(qHq
+🔑 Passwort_widerholen: Ps1zMBgc(qHq
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Dieser Name ist verfügbar  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: niermannkyan
+🔑 Passwort: L+2Bk4&l@n&a
+🔑 Passwort_widerholen: L+2Bk4&l@n&a
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Dieser Name ist verfügbar  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: jolandatobler
+🔑 Passwort: 7Pg&Zf@u)Afb
+🔑 Passwort_widerholen: 7Pg&Zf@u)Afb
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Bitte einen gültigen Namen eingeben:4-12 Zeichen: a-z, A-Z, 0-9, Umlaute  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: maida77
+🔑 Passwort: sEH(NUJ98KfX
+🔑 Passwort_widerholen: sEH(NUJ98KfX
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Dieser Name ist verfügbar  8-20 Zeichen: a-z, A-Z, 0-9, @$!%*?
+🔹 Verwendete Testdaten:
+👤 Benutzername: jerzysiergiej
+🔑 Passwort: ^)3OOBh&+D%%
+🔑 Passwort_widerholen: ^)3OOBh&+D%%
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true

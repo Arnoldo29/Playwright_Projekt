@@ -1,0 +1,15 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"silke46","passwort":"7#Y&LD(W^jI*","passwort_wiederholen":"7#Y&LD(W^jI*","AGB akzeptieren":false},{"benutzername":"melaniesonnleitner","passwort":"36M$Sr!h(I9Q","passwort_wiederholen":"36M$Sr!h(I9Q","AGB akzeptieren":true},{"benutzername":"rensbleijenberg","passwort":"rOW%w7WeKf+3","passwort_wiederholen":"rOW%w7WeKf+3","AGB akzeptieren":false},{"benutzername":"kucharzykrobert","passwort":"j$4mXcUbnq@H","passwort_wiederholen":"j$4mXcUbnq@H","AGB akzeptieren":false},{"benutzername":"corinnebrunner","passwort":"#OB_YQhGn45o","passwort_wiederholen":"#OB_YQhGn45o","AGB akzeptieren":false}]
+📡 API-Request an: http://localhost:8000/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"nina81","passwort":"RoHW2M+bbc$5"},{"benutzername":"kurylowiczadam","passwort":"VxgTx!l&$6E9"},{"benutzername":"tomaszfrukacz","passwort":"ObMEP@gq#4)+"},{"benutzername":"ogotthard","passwort":"meJH3YkJuXq!"},{"benutzername":"chloe84","passwort":"o13&kWju7Dc9"}]
+📡 API-Request an: http://localhost:8000/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"Lemmens","vorname":"Berat","straße":"Eggerstrasse","stadt":"Glarus","postleitzahl":"5619GT","land":"Niederlande","telefonnummer":"055-7311498","alter":34,"geschlecht":"Männlich","email":"mwittmann@example.net"},{"nachname":"Hirsch","vorname":"Hugo","straße":"Nora-Sauer-Platz","stadt":"Onex","postleitzahl":"6790XH","land":"Deutschland","telefonnummer":"724 901 533","alter":73,"geschlecht":"Männlich","email":"dawid77@example.org"},{"nachname":"Hornich","vorname":"Valentina","straße":"Valentijnring","stadt":"Żory","postleitzahl":"05-814","land":"Polen","telefonnummer":"+43 5221 85893 037","alter":71,"geschlecht":"Keine Angabe","email":"lina84@example.org"},{"nachname":"Wesack","vorname":"Theresa","straße":"Babette-Pohl-Allee","stadt":"Ansbach","postleitzahl":"95-842","land":"Schweiz","telefonnummer":"(080) 2910589","alter":73,"geschlecht":"Keine Angabe","email":"ogeisler@example.org"},{"nachname":"Fogiel","vorname":"Luise","straße":"Lucaslaan","stadt":"Kapfenberg","postleitzahl":"72-140","land":"Polen","telefonnummer":"024 605 61 30","alter":37,"geschlecht":"Keine Angabe","email":"mike93@example.org"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8000/export_data/j
+📡 Export-Request an: http://localhost:8000/export_data/s
+📡 Export-Request an: http://localhost:8000/export_data/o
+📡 Export-Request an: http://localhost:8000/export_data/n
+Verbindung zurückgesetzt. Versuche es erneut...

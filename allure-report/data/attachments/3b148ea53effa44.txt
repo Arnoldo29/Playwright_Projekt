@@ -1,0 +1,15 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"jpasieczna","passwort":"mW2O76npi*2h","passwort_wiederholen":"mW2O76npi*2h","AGB akzeptieren":true},{"benutzername":"finkesiegward","passwort":"^)za_nlX7NOl","passwort_wiederholen":"^)za_nlX7NOl","AGB akzeptieren":false},{"benutzername":"mart35","passwort":"$q$2PeEOW#Nn","passwort_wiederholen":"$q$2PeEOW#Nn","AGB akzeptieren":false},{"benutzername":"wstanclik","passwort":"&fIpHQep$5(R","passwort_wiederholen":"&fIpHQep$5(R","AGB akzeptieren":true},{"benutzername":"ldegruson","passwort":"MsaoRqGt#D4X","passwort_wiederholen":"MsaoRqGt#D4X","AGB akzeptieren":true}]
+📡 API-Request an: http://localhost:8000/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"hummerlina","passwort":"*+H@Gkg+eC2@"},{"benutzername":"soeren30","passwort":"3d6Wv)_e_pf5"},{"benutzername":"renatohande","passwort":"dp$_MFQw9C(7"},{"benutzername":"evelien49","passwort":"P29DhiFqg(NY"},{"benutzername":"leopoldmika","passwort":"t%RPAdj4EV8("}]
+📡 API-Request an: http://localhost:8000/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"Brugger","vorname":"Sara","straße":"Hoffmanngasse","stadt":"Pegnitz","postleitzahl":"66628","land":"Polen","telefonnummer":"692 636 561","alter":46,"geschlecht":"Weiblich","email":"puckvan-liendert@example.org"},{"nachname":"van de Elzas","vorname":"Leonardo","straße":"Suuspad","stadt":"Perg","postleitzahl":"18848","land":"Deutschland","telefonnummer":"(099) 3856987","alter":72,"geschlecht":"Männlich","email":"michellekriens@example.net"},{"nachname":"Lehmann","vorname":"Maciej","straße":"Konrad-Gosch-Straße","stadt":"Delden","postleitzahl":"31-251","land":"Deutschland","telefonnummer":"+41 21 547 20 30","alter":70,"geschlecht":"Keine Angabe","email":"niechcialmelania@example.net"},{"nachname":"Samiec","vorname":"Lino","straße":"Wettsteinstrasse","stadt":"Thônex","postleitzahl":"55-482","land":"Polen","telefonnummer":"+43 3548 43102 694","alter":95,"geschlecht":"Männlich","email":"veronikaobermueller@example.com"},{"nachname":"Bonbach","vorname":"Patrik","straße":"Lüthistrasse","stadt":"Scheibbs","postleitzahl":"9612","land":"Niederlande","telefonnummer":"+49 (0) 0125 581093","alter":60,"geschlecht":"Männlich","email":"ismailleeb@example.net"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8000/export_data/j
+📡 Export-Request an: http://localhost:8000/export_data/s
+📡 Export-Request an: http://localhost:8000/export_data/o
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/n

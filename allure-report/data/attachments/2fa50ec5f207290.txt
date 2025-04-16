@@ -1,0 +1,22 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: arie79
+🔑 Passwort: 6aoqVqcY!b
+🔑 Passwort_widerholen: 6aoqVqcY!b
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+✅ Gültige Testdaten gefunden, Registrierung wird fortgesetzt.
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+✅ Erfolgsmeldung erhalten: 'Deine Registrierung war erfolgreich!'
+✅ OK-Button geklickt
+✅ Testdaten aktualisiert.
+📌 Zurück zur Hauptseite
+✅ Auf Login geklickt
+✅ Login-Formular ausgefüllt
+✅ Login abgeschickt

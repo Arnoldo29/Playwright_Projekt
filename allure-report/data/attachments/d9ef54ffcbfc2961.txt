@@ -1,0 +1,35 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: felbergordana
+🔑 Passwort: FK*I$Rfc$4SM
+🔑 Passwort_widerholen: FK*I$Rfc$4SM
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+⚠️ Ungültige Daten: Bitte einen gültigen Namen eingeben:4-12 Zeichen: a-z, A-Z, 0-9, Umlaute  
+🔹 Verwendete Testdaten:
+👤 Benutzername: domenico66
+🔑 Passwort: %4U*cvyEVHSd
+🔑 Passwort_widerholen: %4U*cvyEVHSd
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+🔍 Passwortfeld sichtbar: true
+🔍 Passwortfeld aktiviert: true
+✅ Registrierungsformular ausgefüllt
+✅ Gültige Testdaten gefunden, Registrierung wird fortgesetzt.
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+✅ Erfolgsmeldung erhalten: 'Deine Registrierung war erfolgreich!'
+✅ OK-Button geklickt
+✅ Testdaten aktualisiert.
+📌 Zurück zur Hauptseite
+✅ Auf Login geklickt
+✅ Login-Formular ausgefüllt
+✅ Login abgeschickt

@@ -1,0 +1,145 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Daten für CoffeeShop generieren und exportieren
+- Location: C:\Users\azebaze\Playwright-Kurs\testdaten_generator\DatenGenerieren.spec.ts:5:5
+
+# Error details
+
+```
+Error: Timed out 10000ms waiting for expect(locator).toBeVisible()
+
+Locator: locator('text=5 Datensätze generiert!')
+Expected: visible
+Received: <element(s) not found>
+Call log:
+  - expect.toBeVisible with timeout 10000ms
+  - waiting for locator('text=5 Datensätze generiert!')
+
+    at ExportPage.generateData (C:\Users\azebaze\Playwright-Kurs\Pages\API_Test.page.ts:51:76)
+    at C:\Users\azebaze\Playwright-Kurs\testdaten_generator\DatenGenerieren.spec.ts:19:9
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - button "Deploy"
+  - button
+- heading "Testdaten-Generator" [level=1]
+- text: registrierung
+- combobox "Selected registrierung. Datentyp wählen"
+- img "open"
+- spinbutton "Anzahl der Datensätze": "5"
+- button
+- button
+- button "🛠️ Gültige Daten generieren":
+  - paragraph: 🛠️ Gültige Daten generieren
+- alert:
+  - paragraph: 5 gültige Datensätze generiert!
+- button "Download as CSV"
+- button "Search"
+- button "Fullscreen"
+- button "❌ Ungültige Daten generieren":
+  - paragraph: ❌ Ungültige Daten generieren
+- heading "📤 Daten exportieren" [level=3]
+- text: json
+- combobox "Selected json. Exportformat"
+- img "open"
+- button "💾 Exportieren":
+  - paragraph: 💾 Exportieren
+- paragraph:
+  - text: API gestartet auf
+  - link "http://localhost:8001"
+```
+
+# Test source
+
+```ts
+   1 | // ExportPage.ts
+   2 | import { Page, expect } from '@playwright/test';
+   3 |
+   4 | export class ExportPage {
+   5 |     readonly page: Page;
+   6 |     readonly dropdown;
+   7 |     readonly exportFormat;
+   8 |     readonly generateButton;
+   9 |     readonly exportButton;
+  10 |
+  11 |     constructor(page: Page) {
+  12 |         this.page = page;
+  13 |         this.dropdown = page.getByRole('combobox', { name: /Datentyp wählen/i });
+  14 |         this.exportFormat = page.getByRole('combobox', { name: /Exportformat auswählen/i });
+  15 |         this.generateButton = page.getByRole('button', { name: /Daten generieren/i });
+  16 |         this.exportButton = page.getByRole('button', { name: /Daten exportieren/i });
+  17 |     }
+  18 |
+  19 |     async goto(url: string) {
+  20 |         await this.page.goto(url);
+  21 |         console.log("📌 Seite geladen");
+  22 |         await this.page.waitForTimeout(2000);
+  23 |     }
+  24 |
+  25 |     async verifyTitle(expectedTitle: string) {
+  26 |         await expect(this.page).toHaveTitle(expectedTitle);
+  27 |         console.log(`✅ Seitentitel geprüft: ${expectedTitle}`);
+  28 |         await this.page.waitForTimeout(2000);
+  29 |     }
+  30 |
+  31 |     async selectDataType(dataType: string) {
+  32 |         await this.dropdown.click();
+  33 |         await this.page.locator(`text=${dataType}`).first().click();
+  34 |         await expect(this.dropdown).toHaveAttribute('aria-label', new RegExp(`Selected ${dataType}`, 'i'));
+  35 |         console.log(`✅ '${dataType}' als Datentyp ausgewählt`);
+  36 |         await this.page.waitForTimeout(2000);
+  37 |     }
+  38 |
+  39 |     async enterDataCount(count: number) {
+  40 |         await this.page.fill('input[type="number"]', count.toString());
+  41 |         console.log(`📌 ${count} Datensätze eingegeben`);
+  42 |         await this.page.waitForTimeout(2000);
+  43 |     }
+  44 |
+  45 |     async generateData() {
+  46 |         const buttonSelector = '#root > div:nth-child(1) > div.withScreencast > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-mtjnbi.eht7o1d4 > div > div > div > div:nth-child(4) > div > button > div > p';
+  47 |         const button = this.page.locator(buttonSelector);
+  48 |         await expect(button).toBeVisible({ timeout: 5000 });
+  49 |         await button.click();
+  50 |
+> 51 |         await expect(this.page.locator(`text=${5} Datensätze generiert!`)).toBeVisible({ timeout: 10000 });
+     |                                                                            ^ Error: Timed out 10000ms waiting for expect(locator).toBeVisible()
+  52 |         console.log("✅ Daten erfolgreich generiert");
+  53 |         await this.page.waitForTimeout(2000);
+  54 |     }
+  55 |
+  56 |     async exportData(format: string, fileExtension: string) {
+  57 |         const exportSelector = '#root > div:nth-child(1) > div.withScreencast > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-mtjnbi.eht7o1d4 > div > div > div > div:nth-child(8) > div > button > div > p';
+  58 |         const finalExportButtonSelector = '#root > div:nth-child(1) > div.withScreencast > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-mtjnbi.eht7o1d4 > div > div > div > div:nth-child(9) > div > button > div > p';
+  59 |
+  60 |         await this.exportFormat.click();
+  61 |         await this.page.locator(`text=${format}`).first().click();
+  62 |         await expect(this.exportFormat).toHaveAttribute('aria-label', new RegExp(`Selected ${format}`, 'i'));
+  63 |         console.log(`✅ '${format}' als Exportformat ausgewählt`);
+  64 |
+  65 |         const exportButton = this.page.locator(exportSelector);
+  66 |         await expect(exportButton).toBeVisible({ timeout: 5000 });
+  67 |         await exportButton.click();
+  68 |
+  69 |         const finalExportButton = this.page.locator(finalExportButtonSelector);
+  70 |         await expect(finalExportButton).toBeVisible({ timeout: 5000 });
+  71 |         const [download] = await Promise.all([
+  72 |             this.page.waitForEvent('download'),
+  73 |             finalExportButton.click()
+  74 |         ]);
+  75 |
+  76 |         expect(download.suggestedFilename()).toContain(`data.${fileExtension}`);
+  77 |         console.log(`✅ ${format.toUpperCase()}-Daten exportiert`);
+  78 |     }
+  79 | }
+  80 |
+```

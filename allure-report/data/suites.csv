@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","13845","Daten für CoffeeShop-Webseite verwenden","chromium","Wed Apr 16 10:19:41 CEST 2025","passed","Wed Apr 16 10:19:55 CEST 2025","","API_Testdaten.spec.ts","",""
+"","15566","Daten für CoffeeShop-Webseite verwenden","chromium","Wed Apr 16 10:18:47 CEST 2025","passed","Wed Apr 16 10:19:03 CEST 2025","","APIDataCoffeeShop.spec.ts","",""
+"","30999","Daten für CoffeeShop generieren und exportieren","chromium","Wed Apr 09 15:52:29 CEST 2025","broken","Wed Apr 09 15:53:00 CEST 2025","","DatenGenerieren.spec.ts","",""
+"","221","Daten generieren und exportieren (API)","chromium","Wed Apr 16 10:11:19 CEST 2025","passed","Wed Apr 16 10:11:19 CEST 2025","","GenUndExport_API.spec.ts","",""
+"","5838","Ungültige Daten für CoffeeShop-Webseite verwenden","chromium","Wed Apr 16 10:20:07 CEST 2025","passed","Wed Apr 16 10:20:13 CEST 2025","","API_UngültigeDaten.spec.ts","",""
+"","3375","Registrierung mit gültigen Daten","chromium","Wed Apr 16 09:25:34 CEST 2025","failed","Wed Apr 16 09:25:37 CEST 2025","","APIDataCoffeeShop.spec.ts","",""

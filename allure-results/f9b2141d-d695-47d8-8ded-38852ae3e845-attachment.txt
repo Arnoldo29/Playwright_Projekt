@@ -1,0 +1,80 @@
+✅ Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'vbosshard',
+      passwort: 'P%yJBEa@HejZ2',
+      passwort_wiederholen: 'P%yJBEa@HejZ2',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'staubsuzanne',
+      passwort: 'hmCsNyn2@%0',
+      passwort_wiederholen: 'hmCsNyn2@%0',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'frankdrewes',
+      passwort: '!%GylHIPj1GXt',
+      passwort_wiederholen: '!%GylHIPj1GXt',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'jessica49',
+      passwort: 'b$@6LyKhRV@LaqHGBX',
+      passwort_wiederholen: 'b$@6LyKhRV@LaqHGBX',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'anouk37',
+      passwort: 'N$3RHyMb',
+      passwort_wiederholen: 'N$3RHyMb',
+      'AGB akzeptieren': false
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'adriana64@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'van-der-sandethijmen@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'sylvie87@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'mariellewinkler@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'blazejmazan@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    }
+  ]
+}
+🔹 Verwendete ungültige Testdaten:
+👤 Benutzername: mariellewinkler@#
+🔑 Passwort: abc
+🔑 Passwort wiederholen: abc
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ Fehlermeldung für Benutzername erkannt.
+✅ Fehlermeldung für Passwort erkannt.
+ℹ️ Keine Fehlermeldung für Passwortwiederholung – wird in diesem Test nicht benötigt.
+✅ Fehlerhafte Eingaben wurden erkannt – Test erfolgreich abgeschlossen.

@@ -1,0 +1,18 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'rene94',
+      passwort: '%0!K1yymg5!',
+      passwort_wiederholen: '%0!K1yymg5!',
+      'AGB akzeptieren': true
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'van-der-heydenbeau@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'rbachmann',
+      passwort: 'U$9FRlbm',
+      passwort_wiederholen: 'U$9FRlbm',
+      'AGB akzeptieren': false
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'lola21@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    }
+  ]
+}
+🔹 Verwendete Testdaten:
+👤 Benutzername: rbachmann
+🔑 Passwort: U$9FRlbm
+🔑 Passwort_wiederholen: U$9FRlbm

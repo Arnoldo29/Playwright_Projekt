@@ -1,0 +1,225 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Daten für CoffeeShop generieren und exportieren
+- Location: C:\Users\azebaze\Playwright-Kurs\testdaten_generator\DatenGenerieren.spec.ts:5:5
+
+# Error details
+
+```
+Error: Option 'json' sollte sichtbar sein
+
+expect(locator).toBeVisible()
+
+Locator: locator('div:has-text("json")').first()
+Expected: visible
+Received: hidden
+Call log:
+  - Option 'json' sollte sichtbar sein with timeout 10000ms
+  - waiting for locator('div:has-text("json")').first()
+    7 × locator resolved to <div id="root">…</div>
+      - unexpected value "hidden"
+
+    at ExportPage.exportiereUndLadeFormate (C:\Users\azebaze\Playwright-Kurs\Pages\API_Test.page.ts:81:77)
+    at C:\Users\azebaze\Playwright-Kurs\testdaten_generator\DatenGenerieren.spec.ts:32:5
+```
+
+# Page snapshot
+
+```yaml
+- banner:
+  - button "Deploy"
+  - button
+- heading "Testdaten-Generator" [level=1]
+- text: profil
+- combobox "Selected profil. Datentyp wählen"
+- img "open"
+- spinbutton "Anzahl der Datensätze": "5"
+- button
+- button
+- button "🛠️ Gültige Daten generieren":
+  - paragraph: 🛠️ Gültige Daten generieren
+- alert:
+  - paragraph: 5 gültige Datensätze generiert!
+- button "Download as CSV"
+- button "Search"
+- button "Fullscreen"
+- button "❌ Ungültige Daten generieren":
+  - paragraph: ❌ Ungültige Daten generieren
+- heading "📤 Daten exportieren" [level=3]
+- text: json
+- combobox "Selected json. Exportformat" [expanded]
+- img "open"
+- button "💾 Exportieren":
+  - paragraph: 💾 Exportieren
+- paragraph:
+  - text: API gestartet auf
+  - link "http://localhost:8001"
+- list:
+  - option "json" [selected]
+  - option "csv"
+  - option "xlsx"
+  - option "xml"
+```
+
+# Test source
+
+```ts
+   1 | import { Page, expect } from '@playwright/test';
+   2 |
+   3 | export class ExportPage {
+   4 |     readonly page: Page;
+   5 |     readonly dropdown;
+   6 |     readonly exportFormat;
+   7 |     readonly generateButton;
+   8 |     readonly exportButton;
+   9 |
+   10 |     constructor(page: Page) {
+   11 |         this.page = page;
+   12 |         this.dropdown = page.getByRole('combobox', { name: /Datentyp wählen/i });
+   13 |         this.exportFormat = page.getByRole('combobox', { name: /Exportformat auswählen/i });
+   14 |         this.generateButton = page.getByRole('button', { name: /Daten generieren/i });
+   15 |         this.exportButton = page.getByRole('button', { name: /Daten exportieren/i });
+   16 |     }
+   17 |
+   18 |     async goto(url: string) {
+   19 |         await this.page.goto(url);
+   20 |         console.log("📌 Seite geladen");
+   21 |         await this.page.waitForTimeout(2000);
+   22 |     }
+   23 |
+   24 |     async verifyTitle(expectedTitle: string) {
+   25 |         await expect(this.page).toHaveTitle(expectedTitle);
+   26 |         console.log(`✅ Seitentitel geprüft: ${expectedTitle}`);
+   27 |         await this.page.waitForTimeout(2000);
+   28 |     }
+   29 |
+   30 |     async selectDataType(dataType: string) {
+   31 |         await this.dropdown.click();
+   32 |         await this.page.locator(`text=${dataType}`).first().click();
+   33 |         await expect(this.dropdown).toHaveAttribute('aria-label', new RegExp(`Selected ${dataType}`, 'i'));
+   34 |         console.log(`✅ '${dataType}' als Datentyp ausgewählt`);
+   35 |         await this.page.waitForTimeout(2000);
+   36 |     }
+   37 |
+   38 |     async enterDataCount(count: number) {
+   39 |         await this.page.fill('input[type="number"]', count.toString());
+   40 |         console.log(`📌 ${count} Datensätze eingegeben`);
+   41 |         await this.page.waitForTimeout(2000);
+   42 |     }
+   43 |
+   44 |     async generateData(count: number) {
+   45 |         // Dynamischer Text, der die Anzahl der generierten Datensätze enthält
+   46 |         const confirmationText = `${count} gültige Datensätze generiert!`;
+   47 |     
+   48 |         // Warten auf den Button zum Generieren der Daten und sicherstellen, dass er sichtbar ist
+   49 |         const generateButtonLocator = this.page.locator('#root > div:nth-child(1) > div.withScreencast > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-mtjnbi.eht7o1d4 > div > div > div > div:nth-child(4) > div > button > div');
+   50 |         await expect(generateButtonLocator).toBeVisible({ timeout: 5000 });
+   51 |     
+   52 |         // Klick auf den Button, um die Daten zu generieren
+   53 |         await generateButtonLocator.click();
+   54 |     
+   55 |         // Bestätigungsnachricht erwarten
+   56 |         const confirmationLocator = this.page.locator(`#root > div:nth-child(1) > div.withScreencast > div > div > section > div.stMainBlockContainer.block-container.st-emotion-cache-mtjnbi.eht7o1d4 > div > div > div > div:nth-child(5) > div > div > div > div > div > div:has-text("${confirmationText}")`);
+   57 |         await expect(confirmationLocator).toBeVisible({ timeout: 10000 });
+   58 |     
+   59 |         // Konsolen-Log zur Bestätigung der Generierung
+   60 |         console.log(`✅ ${confirmationText} erfolgreich generiert`);
+   61 |     
+   62 |         // Optional: Warte etwas, um sicherzustellen, dass die Bestätigung vollständig sichtbar ist
+   63 |         await this.page.waitForTimeout(2000);
+   64 |     }
+   65 |     
+   66 |     
+   67 |
+   68 |     async exportiereUndLadeFormate(formate: string[]) {
+   69 |         for (const format of formate) {
+   70 |             console.log(`📌 Beginne mit dem Export für das Format '${format}'`);
+   71 |     
+   72 |             // 1. Dropdown öffnen
+   73 |             const comboBox = this.page.getByRole('combobox', { name: /Exportformat/i });
+   74 |             await comboBox.click();
+   75 |             await expect(comboBox).toBeVisible({ timeout: 5000 }); // Sicherstellen, dass das Dropdown sichtbar ist
+   76 |             await this.page.waitForTimeout(500); // Kleine Pause, falls Animation
+   77 |     
+   78 |             // 2. Option im Dropdown suchen und klicken
+   79 |             const option = this.page.locator(`div:has-text("${format}")`).first();
+   80 |             await option.scrollIntoViewIfNeeded(); // Scrollen, falls die Option nicht sichtbar ist
+>  81 |             await expect(option, `Option '${format}' sollte sichtbar sein`).toBeVisible({ timeout: 10000 });
+      |                                                                             ^ Error: Option 'json' sollte sichtbar sein
+   82 |             await option.click();
+   83 |             console.log(`✅ Format '${format}' ausgewählt`);
+   84 |     
+   85 |             // 3. Exportieren-Button suchen und klicken
+   86 |             const exportButton = this.page.getByRole('button', { name: /Daten exportieren/i });
+   87 |             await expect(exportButton, 'Exportieren-Button sollte sichtbar sein').toBeVisible({ timeout: 5000 });
+   88 |             await exportButton.click();
+   89 |             console.log(`⬇️ Exportvorgang für '${format}' gestartet`);
+   90 |     
+   91 |             // 4. Auf den passenden Download-Button warten und klicken
+   92 |             const downloadButton = this.page.getByRole('button', {
+   93 |                 name: new RegExp(`Download ${format}\\s*\\(gültig\\)`, 'i'),
+   94 |             });
+   95 |     
+   96 |             const [download] = await Promise.all([
+   97 |                 this.page.waitForEvent('download'),
+   98 |                 downloadButton.click(),
+   99 |             ]);
+  100 |     
+  101 |             // 5. Datei speichern
+  102 |             const filename = await download.suggestedFilename();
+  103 |             await download.saveAs(`downloads/${filename}`);
+  104 |             console.log(`✅ Datei im Format '${format}' erfolgreich heruntergeladen: ${filename}`);
+  105 |         }
+  106 |     }
+  107 |     
+  108 |     
+  109 |
+  110 |    /* async exportiereUndLadeFormate(formate: string[]) {
+  111 |         for (const format of formate) {
+  112 |             // Export-Dropdown öffnen
+  113 |             const exportDropdown = this.page.locator('[role="combobox"][aria-label*="Exportformat"]');
+  114 |             await expect(exportDropdown, 'Export-Dropdown sollte sichtbar sein').toBeVisible({ timeout: 10000 });
+  115 |             await exportDropdown.click();
+  116 |             console.log(`📂 Dropdown für Exportformate geöffnet`);
+  117 |     
+  118 |             // Option aus Dropdown wählen (Format auswählen)
+  119 |             const option = this.page.locator(`div.st-bn:has-text('${format}')`).first(); // Sucht nach der Format-Option
+  120 |             await expect(option, `Option '${format}' sollte sichtbar sein`).toBeVisible({ timeout: 5000 });
+  121 |             await option.click();
+  122 |             console.log(`📌 Format '${format}' ausgewählt`);
+  123 |     
+  124 |             // Exportieren-Button klicken
+  125 |             const exportButton = this.page.locator('button:has-text("💾 Exportieren")');
+  126 |             await expect(exportButton, 'Exportieren-Button sollte sichtbar sein').toBeVisible({ timeout: 5000 });
+  127 |             await exportButton.click();
+  128 |             console.log(`⬇️ Exportvorgang für '${format}' gestartet`);
+  129 |     
+  130 |             // Download-Button abhängig vom Format suchen
+  131 |             const downloadButton = this.page.getByRole('button', {
+  132 |                 name: new RegExp(`Download ${format.toUpperCase()} \\(gültig\\)`, 'i'),
+  133 |             });
+  134 |
+  135 |             const [download] = await Promise.all([
+  136 |                 this.page.waitForEvent('download'),
+  137 |                 downloadButton.first().click(),
+  138 |             ]);
+  139 |     
+  140 |             // Datei speichern
+  141 |             const filename = await download.suggestedFilename();
+  142 |             await download.saveAs(`downloads/${filename}`);
+  143 |             console.log(`✅ Datei im Format '${format}' heruntergeladen: ${filename}`);
+  144 |         }
+  145 |     } */
+  146 |     
+  147 |     
+  148 |     
+  149 |     
+  150 | }
+  151 |
+```

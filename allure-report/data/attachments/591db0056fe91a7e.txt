@@ -1,0 +1,80 @@
+✅ Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'nikolarupp',
+      passwort: '1u62p7E1icOj2ibP%',
+      passwort_wiederholen: '1u62p7E1icOj2ibP%',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'miriam77',
+      passwort: '@$wJmTw@S2',
+      passwort_wiederholen: '@$wJmTw@S2',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'omulder',
+      passwort: '@*1NjUno',
+      passwort_wiederholen: '@*1NjUno',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'furreristvan',
+      passwort: 'fwR5QMs7CG5xHRz6*!',
+      passwort_wiederholen: 'fwR5QMs7CG5xHRz6*!',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'lucabertho',
+      passwort: 'XYME8Y406!6C6eo',
+      passwort_wiederholen: 'XYME8Y406!6C6eo',
+      'AGB akzeptieren': false
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'phileine49@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'dengglouisa@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'ardabeck@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    },
+    {
+      benutzername: 'maks09@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    },
+    {
+      benutzername: 'czelazek@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': true
+    }
+  ]
+}
+🔹 Verwendete ungültige Testdaten:
+👤 Benutzername: phileine49@#
+🔑 Passwort: abc
+🔑 Passwort wiederholen: abc
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
+✅ Auf Accountbar geklickt
+✅ Login-Container Überschrift gefunden
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ Fehlermeldung für Benutzername erkannt.
+✅ Fehlermeldung für Passwort erkannt.
+ℹ️ Keine Fehlermeldung für Passwortwiederholung – wird in diesem Test nicht benötigt.
+✅ Fehlerhafte Eingaben wurden erkannt – Test erfolgreich abgeschlossen.

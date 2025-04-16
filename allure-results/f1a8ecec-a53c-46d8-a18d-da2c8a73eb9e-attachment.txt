@@ -1,0 +1,38 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: zfortuyn
+🔑 Passwort: a%406Tqf4X
+🔑 Passwort_widerholen: a%406Tqf4X
+📌 CoffeeShop-Webseite geladen
+✅ Auf Accountbar geklickt
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+⚠️ Ungültige Daten: zfortuyn
+🔹 Verwendete Testdaten:
+👤 Benutzername: filip18
+🔑 Passwort: p*UsUGfzE01A
+🔑 Passwort_widerholen: p*UsUGfzE01A
+📌 CoffeeShop-Webseite geladen
+✅ Auf Accountbar geklickt
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+⚠️ Ungültige Daten: filip18
+🔹 Verwendete Testdaten:
+👤 Benutzername: viktor01
+🔑 Passwort: aPBGJnH0%9
+🔑 Passwort_widerholen: aPBGJnH0%9
+📌 CoffeeShop-Webseite geladen
+✅ Auf Accountbar geklickt
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+✅ Registrierung erfolgreich!
+📌 CoffeeShop-Webseite geladen
+✅ Auf Login geklickt
+✅ Login-Formular ausgefüllt
+✅ Login abgeschickt
+❌ Login nicht erfolgreich.

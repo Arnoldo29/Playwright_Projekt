@@ -1,0 +1,15 @@
+🔹 Verwendete Testdaten:
+👤 Benutzername: richard46
+🔑 Passwort: vgQ*36P$UVZQP!dCyL
+🔑 Passwort_widerholen: vgQ*36P$UVZQP!dCyL
+📌 CoffeeShop-Webseite geladen
+✅ Auf Accountbar geklickt
+✅ Auf Registrierung geklickt
+✅ Registrierungsformular ausgefüllt
+✅ AGB akzeptiert
+✅ Registrierung abgeschickt
+✅ Registrierung erfolgreich!
+📌 CoffeeShop-Webseite geladen
+✅ Auf Login geklickt
+✅ Login-Formular ausgefüllt
+✅ Login abgeschickt

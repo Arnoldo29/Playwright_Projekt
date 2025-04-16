@@ -1,0 +1,15 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"kristian60","passwort":"0ALdz8cj!GGl","passwort_wiederholen":"0ALdz8cj!GGl","AGB akzeptieren":true},{"benutzername":"augusto11","passwort":"o46^Zz3dAUbZ","passwort_wiederholen":"o46^Zz3dAUbZ","AGB akzeptieren":false},{"benutzername":"jekeljustin","passwort":"FRnGJaf9m*3_","passwort_wiederholen":"FRnGJaf9m*3_","AGB akzeptieren":false},{"benutzername":"lia30","passwort":"K6++F1mNn*68","passwort_wiederholen":"K6++F1mNn*68","AGB akzeptieren":true},{"benutzername":"trubmarija","passwort":"9V4W2Xak)$3&","passwort_wiederholen":"9V4W2Xak)$3&","AGB akzeptieren":false}]
+📡 API-Request an: http://localhost:8000/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"tola07","passwort":"8rS#&SN5&9kR"},{"benutzername":"roosandre","passwort":"L2ZV3+Dn&NHE"},{"benutzername":"qbarth","passwort":"v9KihsxY!8tN"},{"benutzername":"kpiotrak","passwort":"u4#Kq%W##!a!"},{"benutzername":"kmuehlberger","passwort":"8hJdTwOGc!3c"}]
+📡 API-Request an: http://localhost:8000/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"van Dagsburg","vorname":"Konstanty","straße":"Kaszubska","stadt":"Korneuburg","postleitzahl":"83-353","land":"Deutschland","telefonnummer":"011-3155823","alter":29,"geschlecht":"Männlich","email":"jakub45@example.com"},{"nachname":"van der Steen","vorname":"Wojciech","straße":"Stettlerstrasse","stadt":"Wyszków","postleitzahl":"71672","land":"Österreich","telefonnummer":"09920 646423","alter":33,"geschlecht":"Keine Angabe","email":"leonie16@example.net"},{"nachname":"Johann","vorname":"Elsa","straße":"Patrik-Hebenstreit-Gasse","stadt":"Laa an der Thaya","postleitzahl":"74-351","land":"Schweiz","telefonnummer":"0214 916852","alter":38,"geschlecht":"Divers","email":"misiukkornelia@example.org"},{"nachname":"Roessink","vorname":"Gitta","straße":"Catharina-Kitzler-Weg","stadt":"Mallersdorf","postleitzahl":"1847","land":"Polen","telefonnummer":"04807 50947 077","alter":97,"geschlecht":"Divers","email":"gbialach@example.org"},{"nachname":"Jaszcz","vorname":"Monika","straße":"Siglplatz","stadt":"Beek","postleitzahl":"1537","land":"Deutschland","telefonnummer":"05617/75345693","alter":66,"geschlecht":"Weiblich","email":"stolzereinhart@example.com"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8000/export_data/j
+📡 Export-Request an: http://localhost:8000/export_data/s
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/o
+📡 Export-Request an: http://localhost:8000/export_data/n

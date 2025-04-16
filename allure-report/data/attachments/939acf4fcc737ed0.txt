@@ -1,0 +1,17 @@
+📡 API-Request an: http://localhost:8000/generate/registrierung/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"qnerger","passwort":"Tj42PavBm_AM","passwort_wiederholen":"Tj42PavBm_AM","AGB akzeptieren":false},{"benutzername":"domenico66","passwort":"%4U*cvyEVHSd","passwort_wiederholen":"%4U*cvyEVHSd","AGB akzeptieren":true},{"benutzername":"felbergordana","passwort":"FK*I$Rfc$4SM","passwort_wiederholen":"FK*I$Rfc$4SM","AGB akzeptieren":false},{"benutzername":"mariusz82","passwort":"G6J*g#XJs%!M","passwort_wiederholen":"G6J*g#XJs%!M","AGB akzeptieren":true},{"benutzername":"edwin97","passwort":"&MQ2zKKjcH39","passwort_wiederholen":"&MQ2zKKjcH39","AGB akzeptieren":false}]
+📡 API-Request an: http://localhost:8000/generate/login/5
+🔄 Statuscode: 200
+📩 Antwort: [{"benutzername":"pruschkeeleonore","passwort":"pj79lozl_)U&"},{"benutzername":"hboruc","passwort":"sq9!DswKA+3K"},{"benutzername":"serainafavre","passwort":"Lb6pvrizQ(uE"},{"benutzername":"hcichowlas","passwort":"(P0@Y@fa0oM7"},{"benutzername":"natascha05","passwort":"^7&hV3j7+0Vi"}]
+📡 API-Request an: http://localhost:8000/generate/profil/5
+🔄 Statuscode: 200
+📩 Antwort: [{"nachname":"Meister","vorname":"Mauro","straße":"Nikolaj-Heidrich-Straße","stadt":"Flöha","postleitzahl":"1311","land":"Deutschland","telefonnummer":"725 378 265","alter":52,"geschlecht":"Divers","email":"wielandmatthaei@example.net"},{"nachname":"Schuler","vorname":"Florian","straße":"Vito-Seiwald-Straße","stadt":"Zgierz","postleitzahl":"9800 IO","land":"Niederlande","telefonnummer":"(029) 8731043","alter":99,"geschlecht":"Männlich","email":"ewanazar@example.com"},{"nachname":"Stadelmann","vorname":"Aziz","straße":"Paffrathring","stadt":"Kindberg","postleitzahl":"52085","land":"Polen","telefonnummer":"+41 62 026 89 94","alter":32,"geschlecht":"Männlich","email":"plattnerviktor@example.com"},{"nachname":"Gałaj","vorname":"Floris","straße":"Erik-Weninger-Gasse","stadt":"Althofen","postleitzahl":"1104","land":"Österreich","telefonnummer":"05546 40734 057","alter":64,"geschlecht":"Männlich","email":"emirgemen@example.org"},{"nachname":"Verschuere","vorname":"Loredana","straße":"Wyzwolenia","stadt":"Purkersdorf","postleitzahl":"29834","land":"Deutschland","telefonnummer":"04176 192604","alter":92,"geschlecht":"Keine Angabe","email":"dijkmanmustafa@example.org"}]
+✅ Testdaten gespeichert!
+📡 Export-Request an: http://localhost:8000/export_data/j
+📡 Export-Request an: http://localhost:8000/export_data/s
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/o
+Verbindung zurückgesetzt. Versuche es erneut...
+📡 Export-Request an: http://localhost:8000/export_data/n
+Verbindung zurückgesetzt. Versuche es erneut...

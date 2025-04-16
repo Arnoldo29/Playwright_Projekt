@@ -1,0 +1,24 @@
+Testdaten erfolgreich abgerufen: {
+  'gültige_daten': [
+    {
+      benutzername: 'marissa95',
+      passwort: '76i43Oyq@cM',
+      passwort_wiederholen: '76i43Oyq@cM',
+      'AGB akzeptieren': true
+    }
+  ],
+  'ungültige_daten': [
+    {
+      benutzername: 'fnaser@#',
+      passwort: 'abc',
+      passwort_wiederholen: 'abc',
+      'AGB akzeptieren': false
+    }
+  ]
+}
+🔹 Verwendete Testdaten:
+👤 Benutzername: marissa95
+🔑 Passwort: 76i43Oyq@cM
+🔑 Passwort_wiederholen: 76i43Oyq@cM
+📌 CoffeeShop-Webseite geladen
+✅ Logo ist vorhanden
