@@ -17,6 +17,10 @@ jobs:
       contents: read
       actions: write
 
+
+    env: # Dbugging aktivieren
+      ACTIONS_SETP_DEBUG: true
+
     steps:
       # 1. Repository auschecken
       - name: Checkout repository
