@@ -14,7 +14,7 @@ import { config } from 'process';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './testdaten_generator',
+  testDir: './Testdaten_generator',
   testMatch: '**/*.spec.ts',
 
   projects: [
