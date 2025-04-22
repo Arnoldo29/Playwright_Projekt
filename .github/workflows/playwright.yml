@@ -3,7 +3,7 @@ name: "Playwright CI/CD Pipeline"
 on:
   push:
     branches:
-      - main # Führen Sie die Pipeline nur bei Änderungen im Branch "main" aus
+      - main
   pull_request:
     branches:
       - main
@@ -34,7 +34,9 @@ jobs:
 
       # 5. Tests ausführen
       - name: Run Playwright Tests
-        run: npx playwright test
+        run: |
+          mkdir -p test-results
+          npx playwright test --output test-results
 
       # 6. Testergebnisse hochladen
       - name: Upload test results
