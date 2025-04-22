@@ -45,7 +45,7 @@ jobs:
       # 6. Testergebnisse hochladen
       - name: Upload test results
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: Test Results
           path: test-results
