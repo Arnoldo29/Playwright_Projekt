@@ -38,11 +38,19 @@ jobs:
         run: npm ci
 
 
-      #4. Verfügbarkeit der API prüfen
-      - name: Check API availability
+      # 4. API-Server starten
+      - name: Start API Server
+        run: |
+          cd C:/Users/azebaze/PycharmProjects/PythonProject
+          python API_Neu.py &
+        shell: bash
+
+
+      # 5. Warten, bis die API verfügbar ist
+      - name: Wait for API
         run: |
           for i in {1..10}; do
-            curl -sSf http://127.0.0.1:8001/generate/registrierung/5  && break || sleep 5;
+            curl -s http://127.0.0.1:8001 && break || sleep 5;
           done
         shell: bash
 
