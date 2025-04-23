@@ -5,10 +5,10 @@ import path from 'path';
 import axios from 'axios'; // Fügen Sie Axios hinzu, um mit der API zu kommunizieren
 
 test('Daten für CoffeeShop-Webseite verwenden', async ({ page }) => {
-    const COFFEESHOP_URL = 'http://10.40.226.38/Bootcamp_Bench/index.php';
+    const COFFEESHOP_URL = process.env.COFFEESHOP_URL || 'http://10.40.226.38/Bootcamp_Bench/index.php';
 
     // API URL
-    const API_URL = 'http://127.0.0.1:8001/generate/registrierung/1'; // Beispiel für 1 registrierung Datensatz
+    const API_URL = process.env.API_URL || 'http://127.0.0.1:8001/generate/registrierung/1'; // Beispiel für 1 registrierung Datensatz
     let testData = null;
 
     try {

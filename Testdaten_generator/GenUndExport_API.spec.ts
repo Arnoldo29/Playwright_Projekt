@@ -4,7 +4,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 test('Daten generieren und exportieren (API)', async ({ request }) => {
-    const API_URL = 'http://localhost:8001'; // Korrigierte Basis-URL
+    const API_URL = process.env.UI_URL || 'http://localhost:8001'; // Korrigierte Basis-URL
     const api = new DataAPI(request, API_URL);
 
     // Daten für Registrierung, Login und Profil generieren
