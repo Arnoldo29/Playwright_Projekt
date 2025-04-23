@@ -47,8 +47,8 @@ jobs:
         shell: bash
 
       # 5. Projekt bauen
-      - name: Build project
-        run: npm run build
+      #- name: Build project
+       # run: npm run build
 
 
       # 6. Playwright installieren
