@@ -44,6 +44,7 @@ jobs:
           for i in {1..10}; do
             curl -sSf http://127.0.0.1:8001/generate/registrierung/5  && break || sleep 5;
           done
+        shell: bash
 
       # 5. Projekt bauen
       - name: Build project
