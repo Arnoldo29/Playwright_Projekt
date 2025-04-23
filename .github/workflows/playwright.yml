@@ -37,17 +37,30 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 4. Playwright installieren
+
+      #4. Verfügbarkeit der API prüfen
+      - name: Check API availability
+        run: |
+          for i in {1..10}; do
+            curl -sSf http://127.0.0.1:8001/generate/registrierung/5  && break || sleep 5;
+          done
+
+      # 5. Projekt bauen
+      - name: Build project
+        run: npm run build
+
+
+      # 6. Playwright installieren
       - name: Install Playwright
         run: npx playwright install --with-deps
 
-      # 5. Tests ausführen
+      # 7. Tests ausführen
       - name: Run Playwright Tests
         run: |
           mkdir -p test-results
           npx playwright test --output test-results
 
-      # 6. Testergebnisse hochladen
+      # 8. Testergebnisse hochladen
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
