@@ -12,39 +12,38 @@ on:
 jobs:
   test-playwright:
     name: Run Playwright Tests
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
-    permissions: # added permissions
+    permissions:
       contents: read
       actions: write
 
-
-    env: # Dbugging aktivieren
-      ACTIONS_SETP_DEBUG: true
+    env:
+      ACTIONS_STEP_DEBUG: true
+      API_URL: http://127.0.0.1:8001
 
     steps:
       # 1. Repository auschecken
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Node.js einrichten
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
+      # 2. Docker-Version überprüfen
+      - name: Check Docker Version
+        run: docker --version
 
-      # 3. Abhängigkeiten installieren
-      - name: Install dependencies
-        run: npm ci
+      # 2. Setup Docker
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
+      # 3. Build Docker Image
+      - name: Build API Docker Image
+        run: |
+          docker build -t api-server ./PycharmProjects/PythonProject
 
-      # 4. API-Server starten
+      # 4. Start API Server
       - name: Start API Server
         run: |
-          cd C:\Users\azebaze\PycharmProjects\PythonProject
-          Start-Process -FilePath "python" -ArgumentList "API_Neu.py" -NoNewWindow
-        shell: powershell
-
+          docker run -d -p 8001:8001 --name api-server api-server
 
       # 5. Warten, bis die API verfügbar ist
       - name: Wait for API
@@ -52,27 +51,37 @@ jobs:
           for i in {1..10}; do
             curl -s http://127.0.0.1:8001 && break || sleep 5;
           done
-        shell: bash
 
-      # 5. Projekt bauen
-      #- name: Build project
-       # run: npm run build
+      # 6. Node.js einrichten
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
 
+      # 7. Abhängigkeiten installieren
+      - name: Install dependencies
+        run: npm ci
 
-      # 6. Playwright installieren
+      # 8. Playwright installieren
       - name: Install Playwright
         run: npx playwright install --with-deps
 
-      # 7. Tests ausführen
+      # 9. Tests ausführen
       - name: Run Playwright Tests
         run: |
           mkdir -p test-results
           npx playwright test --output test-results
 
-      # 8. Testergebnisse hochladen
+      # 10. Testergebnisse hochladen
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: Test Results
           path: test-results
+
+      # 11. Stop and Remove Docker Container
+      - name: Stop and Remove API Server
+        run: |
+          docker stop api-server
+          docker rm api-server
