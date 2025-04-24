@@ -31,48 +31,53 @@ jobs:
       - name: Check Docker Version
         run: docker --version
 
-      # 2. Setup Docker
+      # 3. Setup Docker
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      # 3. Build Docker Image
+      # 4. Build Docker Image
       - name: Build API Docker Image
         run: |
           docker build -t api-server ./PycharmProjects/PythonProject
 
-      # 4. Start API Server
+      # 5. Start API Server
       - name: Start API Server
         run: |
           docker run -d -p 8001:8001 --name api-server api-server
 
-      # 5. Warten, bis die API verfügbar ist
+      # 6. Warten, bis die API verfügbar ist
       - name: Wait for API
         run: |
           for i in {1..10}; do
             curl -s http://127.0.0.1:8001 && break || sleep 5;
           done
 
-      # 6. Node.js einrichten
+      # 7. Docker-Logs bei Fehlern anzeigen
+      - name: Print Docker Logs
+        if: failure()
+        run: docker logs api-server
+
+      # 8. Node.js einrichten
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
-      # 7. Abhängigkeiten installieren
+      # 9. Abhängigkeiten installieren
       - name: Install dependencies
         run: npm ci
 
-      # 8. Playwright installieren
+      # 10. Playwright installieren
       - name: Install Playwright
         run: npx playwright install --with-deps
 
-      # 9. Tests ausführen
+      # 11. Tests ausführen
       - name: Run Playwright Tests
         run: |
           mkdir -p test-results
-          npx playwright test --output test-results
+          xvfb-run --auto-servernum -- npx playwright test --output test-results
 
-      # 10. Testergebnisse hochladen
+      # 12. Testergebnisse hochladen
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
@@ -80,7 +85,7 @@ jobs:
           name: Test Results
           path: test-results
 
-      # 11. Stop and Remove Docker Container
+      # 13. Stop and Remove Docker Container
       - name: Stop and Remove API Server
         run: |
           docker stop api-server
