@@ -41,9 +41,9 @@ jobs:
       # 4. API-Server starten
       - name: Start API Server
         run: |
-          cd ${{ github.workspace }}/PycharmProjects/PythonProject
+          cd C:\Users\azebaze\PycharmProjects\PythonProject
           python API_Neu.py &
-        shell: bash
+        shell: powershell
 
 
       # 5. Warten, bis die API verfügbar ist
