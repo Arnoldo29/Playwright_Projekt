@@ -41,7 +41,7 @@ jobs:
       # 4. API-Server starten
       - name: Start API Server
         run: |
-          cd C:/Users/azebaze/PycharmProjects/PythonProject
+          cd &{{ github.workspace}}/PycharmProjects/PythonProject
           python API_Neu.py &
         shell: bash
 
