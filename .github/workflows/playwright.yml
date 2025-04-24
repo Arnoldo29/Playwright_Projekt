@@ -45,39 +45,69 @@ jobs:
         run: |
           docker run -d -p 8001:8001 --name api-server api-server
 
-      # 6. Warten, bis die API verfügbar ist
+      # 6. Start Testdatengenerator
+      - name: Start Testdatengenerator
+        run: |
+          docker run -d -p 8501:8501 --name testdatengenerator testdatengenerator-image
+
+      # 7. Warten, bis die API verfügbar ist
       - name: Wait for API
         run: |
           for i in {1..10}; do
-            curl -s http://127.0.0.1:8001 && break || sleep 5;
+            curl -s http://localhost:8001 && break || sleep 5;
           done
 
-      # 7. Docker-Logs bei Fehlern anzeigen
-      - name: Print Docker Logs
+      # 8. Warten, bis der Testdatengenerator verfügbar ist
+      - name: Wait for Testdatengenerator
+        run: |
+          for i in {1..10}; do
+            curl -s http://localhost:8501 && break || sleep 5;
+          done
+
+      # 9. Docker-Logs bei Fehlern anzeigen
+      - name: Print API Server Logs
         if: failure()
         run: docker logs api-server
 
-      # 8. Node.js einrichten
+      - name: Print Testdatengenerator Logs
+        if: failure()
+        run: docker logs testdatengenerator
+
+      # 10. Node.js einrichten
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
-      # 9. Abhängigkeiten installieren
+      # 11. Abhängigkeiten installieren
       - name: Install dependencies
         run: npm ci
 
-      # 10. Playwright installieren
+      # 12. Playwright installieren
       - name: Install Playwright
         run: npx playwright install --with-deps
 
-      # 11. Tests ausführen
+      # 13. Tests ausführen
       - name: Run Playwright Tests
         run: |
           mkdir -p test-results
           xvfb-run --auto-servernum -- npx playwright test --output test-results
 
-      # 12. Testergebnisse hochladen
+      # 14. Allure-Bericht generieren
+      - name: Generate Allure Report
+        if: always()
+        run: |
+          npx allure generate allure-results --clean -o allure-report
+
+      # 15. Allure-Bericht hochladen
+      - name: Upload Allure Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Allure Report
+          path: allure-report
+
+      # 16. Testergebnisse hochladen
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
@@ -85,8 +115,13 @@ jobs:
           name: Test Results
           path: test-results
 
-      # 13. Stop and Remove Docker Container
+      # 17. Stop and Remove Docker Container
       - name: Stop and Remove API Server
         run: |
           docker stop api-server
           docker rm api-server
+
+      - name: Stop and Remove Testdatengenerator
+        run: |
+          docker stop testdatengenerator
+          docker rm testdatengenerator
