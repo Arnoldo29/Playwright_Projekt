@@ -42,7 +42,7 @@ jobs:
       - name: Start API Server
         run: |
           cd C:\Users\azebaze\PycharmProjects\PythonProject
-          python API_Neu.py &
+          Start-Process -FilePath "python" -ArgumentList "API_Neu.py" -NoNewWindow
         shell: powershell
 
 
