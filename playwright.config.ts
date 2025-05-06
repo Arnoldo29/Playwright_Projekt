@@ -52,7 +52,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html'], ['list'], ['junit', {outpoutFile: 'junit-test-report.xml}], ['allure-playwright', {outputFolder: 'allure-results', suiteTitle: true}], ['line']],
+  reporter: [['html'], ['list'], ['junit', {outpoutFile: 'junit-test-report.xml'}], ['allure-playwright', {outputFolder: 'allure-results', suiteTitle: true}], ['line']],
   //outputDir: 'testdaten_generator/allure-results', // speichert Ergebnisse nur hier
 
   //globalSetup: require.resolve('./utils/global-setup.ts'),
