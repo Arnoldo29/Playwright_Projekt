@@ -1,0 +1,117 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: @PlaywrightWithJenkins >> Daten für CoffeeShop-Webseite verwenden
+- Location: /workspaces/Playwright_Projekt/Testdaten_generator/APIDataCoffeeShop.spec.ts:8:5
+
+# Error details
+
+```
+Error: browserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /home/codespace/.cache/ms-playwright/chromium-1161/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AutoExpandDetailsElement,AvoidUnnecessaryBeforeUnloadCheckSync,CertificateTransparencyComponentUpdater,DeferRendererTasksAfterInput,DestroyProfileOnBrowserClose,DialMediaRouteProvider,ExtensionManifestV2Disabled,GlobalMediaControls,HttpsUpgrades,ImprovedCookieControls,LazyFrameLoading,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-3JML5y --remote-debugging-pipe --no-startup-window
+  - <launched> pid=24828
+  - [pid=24828][err] [24828:24843:0506/120132.124591:ERROR:bus.cc(408)] Failed to connect to the bus: Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
+  - [pid=24828][err] [24828:24828:0506/120132.125802:ERROR:ozone_platform_x11.cc(245)] Missing X server or $DISPLAY
+  - [pid=24828][err] [24828:24828:0506/120132.125816:ERROR:env.cc(257)] The platform failed to initialize.  Exiting.
+
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { RegistrationPage } from '../Pages/RegistrationPage';
+   3 | import { LoginPage } from '../Pages/LoginPage';
+   4 | import { promises as fs } from 'fs';
+   5 | import path from 'path';
+   6 |
+   7 | test.describe('@PlaywrightWithJenkins', () => {
+>  8 | test('Daten für CoffeeShop-Webseite verwenden', async ({ page }) => {
+     |     ^ Error: browserType.launch: Target page, context or browser has been closed
+   9 |     const registrationPage = new RegistrationPage(page);
+  10 |     const loginPage = new LoginPage(page);
+  11 |
+  12 |     const COFFEESHOP_URL = 'http://10.40.226.38/Bootcamp_Bench/index.php';
+  13 |
+  14 |     // Lade Testdaten aus der Datei
+  15 |     const testDataPath = path.resolve(__dirname, '../test-data/coffeeshop_testdata.json');
+  16 |     const rawData = await fs.readFile(testDataPath, 'utf-8');
+  17 |     const testData = JSON.parse(rawData);
+  18 |
+  19 |     // Prüfen, ob Registrierungsdaten in der JSON-Datei vorhanden sind
+  20 |     if (!testData.registrierung || !Array.isArray(testData.registrierung.gültige_daten) || testData.registrierung.gültige_daten.length === 0) {
+  21 |         throw new Error("🚨 Fehler: Keine gültigen Registrierungsdaten in der JSON-Datei gefunden!");
+  22 |     }
+  23 |
+  24 |     let validUser = null;
+  25 |     const validUsers = testData.registrierung.gültige_daten;
+  26 |
+  27 |     // Wiederhole, bis gültige Testdaten gefunden werden
+  28 |     while (validUsers.length > 0) {
+  29 |         const randomIndex = Math.floor(Math.random() * validUsers.length);
+  30 |         const randomUser = validUsers[randomIndex];
+  31 |
+  32 |         // Prüfen, ob Benutzername und Passwort vorhanden sind
+  33 |         if (!randomUser.benutzername || !randomUser.passwort) {
+  34 |             validUsers.splice(randomIndex, 1); // Ungültige Daten entfernen
+  35 |             continue;
+  36 |         }
+  37 |
+  38 |         const username = randomUser.benutzername;
+  39 |         const password = randomUser.passwort.trim();
+  40 |         const passwordRepeat = password; // Passwort-Wiederholung
+  41 |
+  42 |         console.log("🔹 Verwendete Testdaten:");
+  43 |         console.log(`👤 Benutzername: ${username}`);
+  44 |         console.log(`🔑 Passwort: ${password}`);
+  45 |         console.log(`🔑 Passwort_widerholen: ${passwordRepeat}`)
+  46 |
+  47 |         // Registrierung durchführen
+  48 |         await registrationPage.navigateTo();
+  49 |         await registrationPage.fillRegistrationForm(username, password);
+  50 |         await registrationPage.agreeToTerms();
+  51 |         await registrationPage.submitRegistration();
+  52 |
+  53 |         // Prüfen, ob eine Erfolgsmeldung erscheint
+  54 |         const successMessage = await page.locator('#overlaysubmit > h2').filter({ hasText: "Deine Registrierung war erfolgreich!" });
+  55 |         if (await successMessage.isVisible()) {
+  56 |             console.log("✅ Registrierung erfolgreich!");
+  57 |             validUser = randomUser; // Gültige Testdaten gefunden
+  58 |             break;
+  59 |         } else {
+  60 |             validUsers.splice(randomIndex, 1); // Ungültige Daten entfernen
+  61 |             console.log(`⚠️ Ungültige Daten: ${username}`);
+  62 |         }
+  63 |     }
+  64 |
+  65 |     if (!validUser) {
+  66 |         throw new Error("❌ Keine gültigen Testdaten gefunden.");
+  67 |     }
+  68 |
+  69 |     // Login durchführen
+  70 |     await loginPage.navigateTo();
+  71 |     await loginPage.clickLoginButton();
+  72 |     await loginPage.fillLoginForm(validUser.benutzername, validUser.passwort);
+  73 |     await loginPage.submitLogin();
+  74 |
+  75 |     // Überprüfen, ob der Login erfolgreich war
+  76 |     //const loginSuccess = await loginPage.isLoginSuccessful();
+  77 |     //expect(loginSuccess).toBeTruthy();
+  78 | });
+  79 | });
+  80 |
+```

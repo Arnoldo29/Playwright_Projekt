@@ -1,0 +1,142 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: @PlaywrightWithJenkins >> Ungültige Daten für CoffeeShop-Webseite verwenden
+- Location: /workspaces/Playwright_Projekt/Testdaten_generator/API_UngültigeDaten.spec.ts:5:5
+
+# Error details
+
+```
+Error: browserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /home/codespace/.cache/ms-playwright/chromium-1161/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AutoExpandDetailsElement,AvoidUnnecessaryBeforeUnloadCheckSync,CertificateTransparencyComponentUpdater,DeferRendererTasksAfterInput,DestroyProfileOnBrowserClose,DialMediaRouteProvider,ExtensionManifestV2Disabled,GlobalMediaControls,HttpsUpgrades,ImprovedCookieControls,LazyFrameLoading,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-o6K5Ex --remote-debugging-pipe --no-startup-window
+  - <launched> pid=23358
+  - [pid=23358][err] [23358:23358:0506/115908.151986:ERROR:ozone_platform_x11.cc(245)] Missing X server or $DISPLAY
+  - [pid=23358][err] [23358:23358:0506/115908.152033:ERROR:env.cc(257)] The platform failed to initialize.  Exiting.
+  - [pid=23358][err] [23358:23371:0506/115908.155297:ERROR:bus.cc(408)] Failed to connect to the bus: Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
+
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import axios from 'axios';
+   3 |
+   4 | test.describe('@PlaywrightWithJenkins', () => {
+>  5 | test('Ungültige Daten für CoffeeShop-Webseite verwenden', async ({ page }) => {
+     |     ^ Error: browserType.launch: Target page, context or browser has been closed
+   6 |     const COFFEESHOP_URL = 'http://10.40.226.38/Bootcamp_Bench/index.php';
+   7 |     const API_URL = 'http://127.0.0.1:8001/generate/registrierung/5';
+   8 |
+   9 |     let testData = null;
+   10 |
+   11 |     try {
+   12 |         const response = await axios.get(API_URL);
+   13 |         testData = response.data;
+   14 |         console.log('✅ Testdaten erfolgreich abgerufen:', testData);
+   15 |     } catch (error) {
+   16 |         throw new Error('Fehler beim Abrufen der Testdaten von der API: ' + error.message);
+   17 |     }
+   18 |
+   19 |     if (!testData.ungültige_daten || !Array.isArray(testData.ungültige_daten) || testData.ungültige_daten.length === 0) {
+   20 |         throw new Error("🚨 Fehler: Keine ungültigen Registrierungsdaten in der API-Antwort gefunden!");
+   21 |     }
+   22 |
+   23 |     const invalidUser = testData.ungültige_daten[Math.floor(Math.random() * testData.ungültige_daten.length)];
+   24 |     const username = invalidUser.benutzername;
+   25 |     const password = invalidUser.passwort.trim();
+   26 |     const passwordRepeat = password;
+   27 |
+   28 |     console.log("🔹 Verwendete ungültige Testdaten:");
+   29 |     console.log(`👤 Benutzername: ${username}`);
+   30 |     console.log(`🔑 Passwort: ${password}`);
+   31 |     console.log(`🔑 Passwort wiederholen: ${passwordRepeat}`);
+   32 |
+   33 |     await page.goto(COFFEESHOP_URL);
+   34 |     console.log("📌 CoffeeShop-Webseite geladen");
+   35 |
+   36 |     expect(await page.$('#headlogo')).not.toBeNull();
+   37 |     console.log("✅ Logo ist vorhanden");
+   38 |
+   39 |     const accountButton = page.locator('#accountbar > a');
+   40 |     if (!(await accountButton.isVisible())) {
+   41 |         throw new Error("🚨 Fehler: Account-Button ist nicht sichtbar!");
+   42 |     }
+   43 |     await accountButton.click();
+   44 |     console.log("✅ Auf Accountbar geklickt");
+   45 |     await page.waitForTimeout(2000);
+   46 |
+   47 |     await expect(page.locator('#loginContainer > h2')).toBeVisible();
+   48 |     console.log("✅ Login-Container Überschrift gefunden");
+   49 |
+   50 |     const registerLink = page.locator('#loginContainer > div > a');
+   51 |     if (!(await registerLink.isVisible())) {
+   52 |         throw new Error("🚨 Fehler: Registrierungs-Link ist nicht sichtbar!");
+   53 |     }
+   54 |     await registerLink.click();
+   55 |     console.log("✅ Auf Registrierung geklickt");
+   56 |
+   57 |     await page.waitForSelector('#register-pwrep', { state: 'visible', timeout: 10000 });
+   58 |     await page.waitForSelector('#register-pw', { state: 'visible', timeout: 10000 });
+   59 |
+   60 |     await page.waitForFunction(() => {
+   61 |         const pw = document.querySelector('#register-pw') as HTMLInputElement;
+   62 |         return pw && !pw.disabled;
+   63 |     });
+   64 |
+   65 |     await page.waitForFunction(() => {
+   66 |         const pwrep = document.querySelector('#register-pwrep') as HTMLInputElement;
+   67 |         return pwrep && !pwrep.disabled;
+   68 |     });
+   69 |
+   70 |     await page.locator('#register-pw').scrollIntoViewIfNeeded();
+   71 |
+   72 |     await page.type('#register-username', username, { delay: 100 });
+   73 |     await page.type('#register-pw', password, { delay: 100 });
+   74 |     await page.type('#register-pwrep', passwordRepeat, { delay: 100 });
+   75 |     console.log("✅ Registrierungsformular ausgefüllt");
+   76 |
+   77 |     // Fehlertext abfragen
+   78 |     const usernameMessage = (await page.locator('#usrmsg').textContent())?.trim() || '';
+   79 |     const passwordMessage = (await page.locator('#pwmsg').textContent())?.trim() || '';
+   80 |     const repwMessage = (await page.locator('#repwmsg').textContent())?.trim() || '';
+   81 |
+   82 |     // Einzelne Fehlermeldungen prüfen
+   83 |     let usernameErrorDetected = false;
+   84 |     let passwordErrorDetected = false;
+   85 |
+   86 |     if (usernameMessage.includes("gültigen Namen eingeben")) {
+   87 |         usernameErrorDetected = true;
+   88 |         console.log("✅ Fehlermeldung für Benutzername erkannt.");
+   89 |     } else {
+   90 |         throw new Error("❌ Die Fehlermeldung für Benutzername wird nicht angezeigt!");
+   91 |     }
+   92 |
+   93 |     if (passwordMessage.includes("8-20 Zeichen")) {
+   94 |         passwordErrorDetected = true;
+   95 |         console.log("✅ Fehlermeldung für Passwort erkannt.");
+   96 |     } else {
+   97 |         throw new Error("❌ Die Fehlermeldung für den Passwort wird nicht angezeigt!");
+   98 |     }
+   99 |
+  100 |     if (repwMessage.includes("stimmen nicht überein")) {
+  101 |         console.log("⚠️ Hinweis: Fehlermeldung für Passwortwiederholung wurde erkannt.");
+  102 |     } else {
+  103 |         console.log("ℹ️ Keine Fehlermeldung für Passwortwiederholung – wird in diesem Test nicht benötigt.");
+  104 |     }
+  105 |
+```

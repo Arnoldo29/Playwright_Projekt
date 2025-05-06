@@ -53,7 +53,9 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
 
-  reporter: [ ['list'], ['junit', {outpoutFile: 'test-results/results.xml'}], ['allure-playwright', {outputFolder: 'allure-results', suiteTitle: true}], ['line']],
+  reporter: [ ['list'],
+   ['junit', {outputFile: 'test-results/results.xml' }], 
+   ['allure-playwright', {outputFolder: 'allure-results', suiteTitle: true}], ['line']],
 
  
   //outputDir: 'testdaten_generator/allure-results', // speichert Ergebnisse nur hier
