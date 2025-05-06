@@ -4,6 +4,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import axios from 'axios'; // Fügen Sie Axios hinzu, um mit der API zu kommunizieren
 
+test.describe('@PlaywrightWithJenkins', () => {
 test('Daten für CoffeeShop-Webseite verwenden', async ({ page }) => {
     const COFFEESHOP_URL = process.env.COFFEESHOP_URL || 'http://10.40.226.38/Bootcamp_Bench/index.php';
 
@@ -222,4 +223,5 @@ test('Daten für CoffeeShop-Webseite verwenden', async ({ page }) => {
     // Überprüfen, ob der Login erfolgreich war (Logout-Button sichtbar)
     //await expect(page.locator('#logout-button')).toBeVisible();
     console.log("🎉 Erfolgreich eingeloggt!");
+});
 });

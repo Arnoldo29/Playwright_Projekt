@@ -1,0 +1,68 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: @PlaywrightWithJenkins >> Daten für CoffeeShop generieren und exportieren
+- Location: /workspaces/Playwright_Projekt/Testdaten_generator/DatenGenerieren.spec.ts:6:5
+
+# Error details
+
+```
+Error: browserType.launch: Executable doesn't exist at /home/codespace/.cache/ms-playwright/chromium-1161/chrome-linux/chrome
+╔═════════════════════════════════════════════════════════════════════════╗
+║ Looks like Playwright Test or Playwright was just installed or updated. ║
+║ Please run the following command to download new browsers:              ║
+║                                                                         ║
+║     npx playwright install                                              ║
+║                                                                         ║
+║ <3 Playwright Team                                                      ║
+╚═════════════════════════════════════════════════════════════════════════╝
+```
+
+# Test source
+
+```ts
+   1 | import { test } from '@playwright/test';
+   2 | import { ExportPage } from '../Pages/API_Test.page';
+   3 | import { DataExporter } from '../utils/DataExporter';
+   4 |
+   5 | test.describe('@PlaywrightWithJenkins', () => {
+>  6 | test('Daten für CoffeeShop generieren und exportieren', async ({ page }) => {
+     |     ^ Error: browserType.launch: Executable doesn't exist at /home/codespace/.cache/ms-playwright/chromium-1161/chrome-linux/chrome
+   7 |     const exportPage = new ExportPage(page);
+   8 |     const UI_URL = 'http://localhost:8501'; // Setze deine URL hier ein
+   9 |
+  10 |     await exportPage.goto(UI_URL);
+  11 |     await exportPage.verifyTitle("API_Neu");
+  12 |
+  13 |     // Funktionen für Registrierung, Login und Profil testen
+  14 |     const functions = ['registrierung', 'login', 'profil'];
+  15 |     const generatedData: Record<string, string> = {};
+  16 |
+  17 |     for (const func of functions) {
+  18 |         await exportPage.selectDataType(func);
+  19 |         await exportPage.enterDataCount(5);
+  20 |         await exportPage.generateData(5);
+  21 |
+  22 |         // Daten in JSON speichern
+  23 |         generatedData[func] = `Daten für ${func} generiert`;
+  24 |     }
+  25 |
+  26 |     // Speichern der generierten Daten für die CoffeeShop-Seite
+  27 |     await DataExporter.saveData('coffeeshop_testdata', generatedData);
+  28 |
+  29 |     // Export in verschiedene Formate testen
+  30 |     const exportFormats = ['json', 'csv', 'xlsx', 'xml'];
+  31 |
+  32 |
+  33 |     await exportPage.exportiereUndLadeFormate(exportFormats);
+  34 |
+  35 |     console.log("🎉 Alle Daten erfolgreich generiert und exportiert!");
+  36 | });
+  37 | });
+  38 |
+```

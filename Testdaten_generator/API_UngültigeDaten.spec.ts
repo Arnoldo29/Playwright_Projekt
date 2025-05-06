@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import axios from 'axios';
 
+test.describe('@PlaywrightWithJenkins', () => {
 test('Ungültige Daten für CoffeeShop-Webseite verwenden', async ({ page }) => {
     const COFFEESHOP_URL = 'http://10.40.226.38/Bootcamp_Bench/index.php';
     const API_URL = 'http://127.0.0.1:8001/generate/registrierung/5';
@@ -108,4 +109,5 @@ test('Ungültige Daten für CoffeeShop-Webseite verwenden', async ({ page }) => 
     } else {
         throw new Error("❌ Fehler: Nicht alle erwarteten Fehlermeldungen wurden erkannt.");
     }
+});
 });

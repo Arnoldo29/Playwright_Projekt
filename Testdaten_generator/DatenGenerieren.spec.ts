@@ -2,6 +2,7 @@ import { test } from '@playwright/test';
 import { ExportPage } from '../Pages/API_Test.page';
 import { DataExporter } from '../utils/DataExporter';
 
+test.describe('@PlaywrightWithJenkins', () => {
 test('Daten für CoffeeShop generieren und exportieren', async ({ page }) => {
     const exportPage = new ExportPage(page);
     const UI_URL = 'http://localhost:8501'; // Setze deine URL hier ein
@@ -32,4 +33,5 @@ test('Daten für CoffeeShop generieren und exportieren', async ({ page }) => {
     await exportPage.exportiereUndLadeFormate(exportFormats);
 
     console.log("🎉 Alle Daten erfolgreich generiert und exportiert!");
+});
 });

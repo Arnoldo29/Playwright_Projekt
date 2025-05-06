@@ -1,0 +1,75 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: @PlaywrightWithJenkins >> Daten für CoffeeShop generieren und exportieren
+- Location: /workspaces/Playwright_Projekt/Testdaten_generator/DatenGenerieren.spec.ts:6:5
+
+# Error details
+
+```
+Error: browserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /home/codespace/.cache/ms-playwright/chromium-1161/chrome-linux/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AutoExpandDetailsElement,AvoidUnnecessaryBeforeUnloadCheckSync,CertificateTransparencyComponentUpdater,DeferRendererTasksAfterInput,DestroyProfileOnBrowserClose,DialMediaRouteProvider,ExtensionManifestV2Disabled,GlobalMediaControls,HttpsUpgrades,ImprovedCookieControls,LazyFrameLoading,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --enable-automation --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-JeACOS --remote-debugging-pipe --no-startup-window
+  - <launched> pid=14308
+  - [pid=14308][err] [14308:14323:0430/113356.618217:ERROR:bus.cc(408)] Failed to connect to the bus: Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory
+  - [pid=14308][err] [14308:14308:0430/113356.619413:ERROR:ozone_platform_x11.cc(245)] Missing X server or $DISPLAY
+  - [pid=14308][err] [14308:14308:0430/113356.619426:ERROR:env.cc(257)] The platform failed to initialize.  Exiting.
+
+```
+
+# Test source
+
+```ts
+   1 | import { test } from '@playwright/test';
+   2 | import { ExportPage } from '../Pages/API_Test.page';
+   3 | import { DataExporter } from '../utils/DataExporter';
+   4 |
+   5 | test.describe('@PlaywrightWithJenkins', () => {
+>  6 | test('Daten für CoffeeShop generieren und exportieren', async ({ page }) => {
+     |     ^ Error: browserType.launch: Target page, context or browser has been closed
+   7 |     const exportPage = new ExportPage(page);
+   8 |     const UI_URL = 'http://localhost:8501'; // Setze deine URL hier ein
+   9 |
+  10 |     await exportPage.goto(UI_URL);
+  11 |     await exportPage.verifyTitle("API_Neu");
+  12 |
+  13 |     // Funktionen für Registrierung, Login und Profil testen
+  14 |     const functions = ['registrierung', 'login', 'profil'];
+  15 |     const generatedData: Record<string, string> = {};
+  16 |
+  17 |     for (const func of functions) {
+  18 |         await exportPage.selectDataType(func);
+  19 |         await exportPage.enterDataCount(5);
+  20 |         await exportPage.generateData(5);
+  21 |
+  22 |         // Daten in JSON speichern
+  23 |         generatedData[func] = `Daten für ${func} generiert`;
+  24 |     }
+  25 |
+  26 |     // Speichern der generierten Daten für die CoffeeShop-Seite
+  27 |     await DataExporter.saveData('coffeeshop_testdata', generatedData);
+  28 |
+  29 |     // Export in verschiedene Formate testen
+  30 |     const exportFormats = ['json', 'csv', 'xlsx', 'xml'];
+  31 |
+  32 |
+  33 |     await exportPage.exportiereUndLadeFormate(exportFormats);
+  34 |
+  35 |     console.log("🎉 Alle Daten erfolgreich generiert und exportiert!");
+  36 | });
+  37 | });
+  38 |
+```

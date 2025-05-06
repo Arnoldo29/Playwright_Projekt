@@ -1,8 +1,10 @@
 import { test } from '@playwright/test';
 import { DataAPI } from '../utils/DataApi';
+//import { Server } from 'http';
 import { promises as fs } from 'fs';
 import path from 'path';
 
+test.describe('@PlaywrightWithJenkins', () => {
 test('Daten generieren und exportieren (API)', async ({ request }) => {
     const API_URL = process.env.UI_URL || 'http://localhost:8001'; // Korrigierte Basis-URL
     const api = new DataAPI(request, API_URL);
@@ -39,4 +41,5 @@ test('Daten generieren und exportieren (API)', async ({ request }) => {
            console.error(`❌ Fehler beim Exportieren von Daten als ${format}:`, error.message);
        }
     }
+});
 });

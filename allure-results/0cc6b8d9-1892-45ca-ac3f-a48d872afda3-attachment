@@ -1,0 +1,137 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Daten für CoffeeShop-Webseite verwenden
+- Location: /workspaces/Playwright_Projekt/Testdaten_generator/API_Testdaten.spec.ts:7:5
+
+# Error details
+
+```
+Error: browserType.launch: Executable doesn't exist at /home/codespace/.cache/ms-playwright/chromium-1161/chrome-linux/chrome
+╔═════════════════════════════════════════════════════════════════════════╗
+║ Looks like Playwright Test or Playwright was just installed or updated. ║
+║ Please run the following command to download new browsers:              ║
+║                                                                         ║
+║     npx playwright install                                              ║
+║                                                                         ║
+║ <3 Playwright Team                                                      ║
+╚═════════════════════════════════════════════════════════════════════════╝
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { log } from 'console';
+   3 | import { promises as fs } from 'fs';
+   4 | import path from 'path';
+   5 | import axios from 'axios'; // Fügen Sie Axios hinzu, um mit der API zu kommunizieren
+   6 |
+>  7 | test('Daten für CoffeeShop-Webseite verwenden', { tag: ['@PlaywrightWithJenkins']}, async ({ page }) => {
+     |     ^ Error: browserType.launch: Executable doesn't exist at /home/codespace/.cache/ms-playwright/chromium-1161/chrome-linux/chrome
+   8 |     const COFFEESHOP_URL = process.env.COFFEESHOP_URL || 'http://10.40.226.38/Bootcamp_Bench/index.php';
+   9 |
+   10 |     // API URL
+   11 |     const API_URL = process.env.API_URL || 'http://127.0.0.1:8001/generate/registrierung/1'; // Beispiel für 1 registrierung Datensatz
+   12 |     let testData = null;
+   13 |
+   14 |     try {
+   15 |         // Lade Testdaten von der API
+   16 |         const response = await axios.get(API_URL);
+   17 |         testData = response.data;
+   18 |         console.log('Testdaten erfolgreich abgerufen:', testData);
+   19 |     } catch (error) {
+   20 |         throw new Error('Fehler beim Abrufen der Testdaten von der API: ' + error.message);
+   21 |     }
+   22 |
+   23 |     // Prüfen, ob Registrierungsdaten in der API-Antwort vorhanden sind
+   24 |     if (
+   25 |         !testData.gültige_daten ||
+   26 |         !Array.isArray(testData.gültige_daten) ||
+   27 |         testData.gültige_daten.length === 0
+   28 |     ) {
+   29 |         throw new Error("🚨 Fehler: Keine gültigen Registrierungsdaten in der API-Antwort gefunden!");
+   30 |     }
+   31 |
+   32 |     let validUser = null;
+   33 |     const validUsers = testData.gültige_daten;
+   34 |     
+   35 |     // Wiederhole, bis gültige Testdaten gefunden werden
+   36 |     while (validUsers.length > 0) {
+   37 |         const randomIndex = Math.floor(Math.random() * validUsers.length);
+   38 |         const randomUser = validUsers[randomIndex];
+   39 |
+   40 |         // Prüfen, ob Benutzername und Passwort vorhanden sind
+   41 |         if (!randomUser.benutzername || !randomUser.passwort) {
+   42 |             validUsers.splice(randomIndex, 1); // Ungültige Daten entfernen
+   43 |             continue;
+   44 |         }
+   45 |
+   46 |         const username = randomUser.benutzername;
+   47 |         const password = randomUser.passwort.trim();
+   48 |         const passwordRepeat = password; // Passwort-Wiederholung
+   49 |
+   50 |         console.log("🔹 Verwendete Testdaten:");
+   51 |         console.log(`👤 Benutzername: ${username}`);
+   52 |         console.log(`🔑 Passwort: ${password}`);
+   53 |         console.log(`🔑 Passwort_wiederholen: ${passwordRepeat}`);
+   54 |
+   55 |         // CoffeeShop-Webseite aufrufen
+   56 |         await page.goto(COFFEESHOP_URL);
+   57 |         console.log("📌 CoffeeShop-Webseite geladen");
+   58 |
+   59 |         // Prüfen, ob das Logo vorhanden ist
+   60 |         expect(await page.$('#headlogo')).not.toBeNull();
+   61 |         console.log("✅ Logo ist vorhanden");
+   62 |
+   63 |         // Überprüfen, ob der Account-Button vorhanden ist, bevor darauf geklickt wird
+   64 |         const accountButton = page.locator('#accountbar > a');
+   65 |         const accountButtonVisible = await accountButton.isVisible();
+   66 |         if (!accountButtonVisible) {
+   67 |             throw new Error("🚨 Fehler: Account-Button ist nicht sichtbar!");
+   68 |         }
+   69 |         // Auf den Account-Button klicken
+   70 |         await accountButton.click();
+   71 |         console.log("✅ Auf Accountbar geklickt");
+   72 |         await page.waitForTimeout(2000);
+   73 |
+   74 |         // Prüfen, ob die Login-Überschrift existiert
+   75 |         await expect(page.locator('#loginContainer > h2')).toBeVisible();
+   76 |         console.log("✅ Login-Container Überschrift gefunden");
+   77 |
+   78 |         // Überprüfen, ob der Registrierungs-Link vorhanden ist, bevor darauf geklickt wird
+   79 |         const registerLink = page.locator('#loginContainer > div > a');
+   80 |         const registerLinkVisible = await registerLink.isVisible();
+   81 |         if (!registerLinkVisible) {
+   82 |             throw new Error("🚨 Fehler: Registrierungs-Link ist nicht sichtbar!");
+   83 |         }
+   84 |         // Auf den Registrierungs-Link klicken
+   85 |         await registerLink.click();
+   86 |         console.log("✅ Auf Registrierung geklickt");
+   87 |
+   88 |         // Warten, bis das Passwort-Wiederholungsfeld sichtbar ist
+   89 |         await page.waitForSelector('#register-pwrep', { state: 'visible', timeout: 10000 });
+   90 |
+   91 |         // Warten, bis das Passwortfeld sichtbar und interaktiv ist
+   92 |         await page.waitForSelector('#register-pw', { state: 'visible', timeout: 10000 });
+   93 |         if (!(await page.locator('#register-pw').isEnabled())) {
+   94 |             throw new Error("🚨 Fehler: Passwortfeld ist nicht aktiviert.");
+   95 |         }
+   96 |
+   97 |         // Prüfen, ob das Feld nicht disabled ist
+   98 |         await page.waitForFunction(() => {
+   99 |             const input = document.querySelector('#register-pw') as HTMLInputElement;
+  100 |             return input && !input.disabled;
+  101 |         });
+  102 |
+  103 |         // Prüfen, ob das Feld nicht disabled ist
+  104 |         await page.waitForFunction(() => {
+  105 |             const input = document.querySelector('#register-pwrep') as HTMLInputElement;
+  106 |             return input && !input.disabled;
+  107 |         });
+```

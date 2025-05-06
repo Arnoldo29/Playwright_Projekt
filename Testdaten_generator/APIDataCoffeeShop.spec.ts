@@ -4,6 +4,7 @@ import { LoginPage } from '../Pages/LoginPage';
 import { promises as fs } from 'fs';
 import path from 'path';
 
+test.describe('@PlaywrightWithJenkins', () => {
 test('Daten für CoffeeShop-Webseite verwenden', async ({ page }) => {
     const registrationPage = new RegistrationPage(page);
     const loginPage = new LoginPage(page);
@@ -74,4 +75,5 @@ test('Daten für CoffeeShop-Webseite verwenden', async ({ page }) => {
     // Überprüfen, ob der Login erfolgreich war
     //const loginSuccess = await loginPage.isLoginSuccessful();
     //expect(loginSuccess).toBeTruthy();
+});
 });

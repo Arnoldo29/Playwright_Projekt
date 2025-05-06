@@ -1,0 +1,108 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Daten für CoffeeShop-Webseite verwenden
+- Location: /workspaces/Playwright_Projekt/Testdaten_generator/APIDataCoffeeShop.spec.ts:7:5
+
+# Error details
+
+```
+Error: browserType.launch: Executable doesn't exist at /home/codespace/.cache/ms-playwright/chromium-1161/chrome-linux/chrome
+╔═════════════════════════════════════════════════════════════════════════╗
+║ Looks like Playwright Test or Playwright was just installed or updated. ║
+║ Please run the following command to download new browsers:              ║
+║                                                                         ║
+║     npx playwright install                                              ║
+║                                                                         ║
+║ <3 Playwright Team                                                      ║
+╚═════════════════════════════════════════════════════════════════════════╝
+```
+
+# Test source
+
+```ts
+   1 | import { test, expect } from '@playwright/test';
+   2 | import { RegistrationPage } from '../Pages/RegistrationPage';
+   3 | import { LoginPage } from '../Pages/LoginPage';
+   4 | import { promises as fs } from 'fs';
+   5 | import path from 'path';
+   6 |
+>  7 | test('Daten für CoffeeShop-Webseite verwenden', { tag: ['@PlaywrightWithJenkins']}, async ({ page }) => {
+     |     ^ Error: browserType.launch: Executable doesn't exist at /home/codespace/.cache/ms-playwright/chromium-1161/chrome-linux/chrome
+   8 |     const registrationPage = new RegistrationPage(page);
+   9 |     const loginPage = new LoginPage(page);
+  10 |
+  11 |     const COFFEESHOP_URL = 'http://10.40.226.38/Bootcamp_Bench/index.php';
+  12 |
+  13 |     // Lade Testdaten aus der Datei
+  14 |     const testDataPath = path.resolve(__dirname, '../test-data/coffeeshop_testdata.json');
+  15 |     const rawData = await fs.readFile(testDataPath, 'utf-8');
+  16 |     const testData = JSON.parse(rawData);
+  17 |
+  18 |     // Prüfen, ob Registrierungsdaten in der JSON-Datei vorhanden sind
+  19 |     if (!testData.registrierung || !Array.isArray(testData.registrierung.gültige_daten) || testData.registrierung.gültige_daten.length === 0) {
+  20 |         throw new Error("🚨 Fehler: Keine gültigen Registrierungsdaten in der JSON-Datei gefunden!");
+  21 |     }
+  22 |
+  23 |     let validUser = null;
+  24 |     const validUsers = testData.registrierung.gültige_daten;
+  25 |
+  26 |     // Wiederhole, bis gültige Testdaten gefunden werden
+  27 |     while (validUsers.length > 0) {
+  28 |         const randomIndex = Math.floor(Math.random() * validUsers.length);
+  29 |         const randomUser = validUsers[randomIndex];
+  30 |
+  31 |         // Prüfen, ob Benutzername und Passwort vorhanden sind
+  32 |         if (!randomUser.benutzername || !randomUser.passwort) {
+  33 |             validUsers.splice(randomIndex, 1); // Ungültige Daten entfernen
+  34 |             continue;
+  35 |         }
+  36 |
+  37 |         const username = randomUser.benutzername;
+  38 |         const password = randomUser.passwort.trim();
+  39 |         const passwordRepeat = password; // Passwort-Wiederholung
+  40 |
+  41 |         console.log("🔹 Verwendete Testdaten:");
+  42 |         console.log(`👤 Benutzername: ${username}`);
+  43 |         console.log(`🔑 Passwort: ${password}`);
+  44 |         console.log(`🔑 Passwort_widerholen: ${passwordRepeat}`)
+  45 |
+  46 |         // Registrierung durchführen
+  47 |         await registrationPage.navigateTo();
+  48 |         await registrationPage.fillRegistrationForm(username, password);
+  49 |         await registrationPage.agreeToTerms();
+  50 |         await registrationPage.submitRegistration();
+  51 |
+  52 |         // Prüfen, ob eine Erfolgsmeldung erscheint
+  53 |         const successMessage = await page.locator('#overlaysubmit > h2').filter({ hasText: "Deine Registrierung war erfolgreich!" });
+  54 |         if (await successMessage.isVisible()) {
+  55 |             console.log("✅ Registrierung erfolgreich!");
+  56 |             validUser = randomUser; // Gültige Testdaten gefunden
+  57 |             break;
+  58 |         } else {
+  59 |             validUsers.splice(randomIndex, 1); // Ungültige Daten entfernen
+  60 |             console.log(`⚠️ Ungültige Daten: ${username}`);
+  61 |         }
+  62 |     }
+  63 |
+  64 |     if (!validUser) {
+  65 |         throw new Error("❌ Keine gültigen Testdaten gefunden.");
+  66 |     }
+  67 |
+  68 |     // Login durchführen
+  69 |     await loginPage.navigateTo();
+  70 |     await loginPage.clickLoginButton();
+  71 |     await loginPage.fillLoginForm(validUser.benutzername, validUser.passwort);
+  72 |     await loginPage.submitLogin();
+  73 |
+  74 |     // Überprüfen, ob der Login erfolgreich war
+  75 |     //const loginSuccess = await loginPage.isLoginSuccessful();
+  76 |     //expect(loginSuccess).toBeTruthy();
+  77 | });
+  78 |
+```
