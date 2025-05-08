@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 git branch: 'main', url: 'https://github.com/Arnoldo29/Playwright_Projekt.git'
-                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+                bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
             post {
                 success {
