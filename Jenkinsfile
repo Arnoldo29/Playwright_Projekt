@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs 'NodeJS' // Name der Node.js-Installation in Jenkins (muss konfiguriert sein)
-    }
+    //tools {
+      //  nodejs 'NodeJS' // Name der Node.js-Installation in Jenkins (muss konfiguriert sein)
+   // }
 
     environment {
         API_URL = 'http://127.0.0.1:8001'
