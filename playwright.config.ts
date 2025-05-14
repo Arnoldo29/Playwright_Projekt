@@ -17,28 +17,7 @@ export default defineConfig({
   testDir: './Testdaten_generator',
   testMatch: '**/*.spec.ts',
 
-  projects: [
-    {
-      name: 'DatenGenerieren',
-      testMatch: ['tests/DatenGenerieren.spec.ts'],
-    },
-    {
-      name: 'GenUndExport_API',
-      testMatch: ['tests/GenUndExport_API.spec.ts'],
-    },
-    {
-      name: 'APIDataCoffeeShop',
-      testMatch: ['tests/APIDataCoffeeShop.spec.ts'],
-    },
-    {
-      name: 'API_Testdaten',
-      testMatch: ['tests/API_Testdaten.spec.ts'],
-    },
-    {
-      name: 'API_UngültigeDaten',
-      testMatch: ['tests/API_UngültigeDaten.spec.ts'],
-    },
-  ],
+  
 
   timeout: 30000, // Timeout für jeden Test
 
@@ -52,12 +31,13 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-
-  reporter: [ ['list'],
-   ['junit', {outputFile: 'test-results/results.xml' }], 
-   ['allure-playwright', {outputFolder: 'allure-results', suiteTitle: true}], ['line']],
-
- 
+  reporter: [
+  ['list'],
+  ['junit', {outputFile: 'test-results/results.xml' }],
+  ['allure-playwright', {outputFolder: 'allure-results', suiteTitle: true}],
+  ['line']
+],
+//globalSetup: require.resolve('./utils/global-setup.ts'),
   //outputDir: 'testdaten_generator/allure-results', // speichert Ergebnisse nur hier
 
   //globalSetup: require.resolve('./utils/global-setup.ts'),
@@ -73,14 +53,17 @@ export default defineConfig({
     video: 'retain-on-failure',
     headless: true,
 
-    storageState: 'loggedInsate.json',
+    //storageState: 'loggedInState.json',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], headless: false },
+      use: { ...devices['Desktop Chrome'], headless: true },
+      testMatch: '**/*.spec.ts',
+      testIgnore: ['tests/Test.spec.ts', 'tests/API_Test.spec.ts'],
+      
     },
 
    // {
